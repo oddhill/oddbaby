@@ -13,11 +13,6 @@ stylesheets[print][] = css/print.css
 
 stylesheets[screen][] = css/origin.css
 
-
-; Set the conditional stylesheets that are processed by IE.
-conditional-stylesheets[if IE][all][] = css/ie.css
-
-
 ; Javascript files.
 scripts[] = js/origin.js
 
