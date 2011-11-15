@@ -90,16 +90,3 @@ li {
   list-style-type: disc;
   margin: 5px 0;
 }
-div.unpublished {
-  margin: 5px 0;
-  font-weight: bold;
-  color: #000;
-  text-shadow: 0 1px 0 #FFF;
-  background: url(../graphics/unpublished_bg.png);
-  border: 1px solid #ece796;
-}
-div.unpublished-inner {
-  padding: 10px 10px 10px 42px;
-  background: url(../graphics/unpublished_icon.png) no-repeat;
-  background-position: 5px 5px;
-}
