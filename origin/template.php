@@ -6,18 +6,18 @@
 /* <-- REMOVE THIS LINE -->
 // iPhone.
 $icons['iphone_icon'] = array(
-  'href' => drupal_get_path('theme','ODDSITE') . '/apple-touch-icon-iphone.png',
+  'href' => url(drupal_get_path('theme','ODDSITE') . '/apple-touch-icon-iphone.png', array('absolute' => TRUE)),
   'rel' => 'apple-touch-icon',
 );
 // iPad.
 $icons['ipad_icon'] = array(
-  'href' => drupal_get_path('theme','ODDSITE') . '/apple-touch-icon-ipad.png',
+  'href' => url(drupal_get_path('theme','ODDSITE') . '/apple-touch-icon-ipad.png', array('absolute' => TRUE)),
   'rel' => 'apple-touch-icon',
   'sizes' => '72x72',
 );
 // iPhone 4.
 $icons['iphone4_icon'] = array(
-  'href' => drupal_get_path('theme','ODDSITE') . '/apple-touch-icon-iphone4.png',
+  'href' => url(drupal_get_path('theme','ODDSITE') . '/apple-touch-icon-iphone4.png', array('absolute' => TRUE)),
   'rel' => 'apple-touch-icon',
   'sizes' => '114x114',
 );
