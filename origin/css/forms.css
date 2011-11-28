@@ -1,3 +1,14 @@
+/**
+ *  This section is used for the wysiwyg and body content
+ *  (e.g. .content .field-name-body)
+ */
+.wysiwygStyle ul {
+  margin-left: 30px;
+}
+.wysiwygStyle ul li {
+  list-style-type: disc;
+  margin: 5px 0;
+}
 form .form-item {
   margin: 5px 0 15px;
 }

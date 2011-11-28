@@ -1,112 +1,29 @@
+/**
+ *  This section is used for the wysiwyg and body content
+ *  (e.g. .content .field-name-body)
+ */
+.wysiwygStyle ul {
+  margin-left: 30px;
+}
+.wysiwygStyle ul li {
+  list-style-type: disc;
+  margin: 5px 0;
+}
+#body {
+  background: #fff;
+}
 #page-wrapper {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 960px;
 }
 #main-wrapper {
   position: relative;
 }
-/* @group SEO content reordering */
-/* @group Content */
-#content, .no-sidebars #content {
-  float: left;
-  /* LTR */
-
-  width: 960px;
-  margin-left: 0;
-  /* LTR */
-
-  margin-right: -960px;
-  /* LTR */
-  /* Negative value of #content's width + left margin. */
-
-  padding: 0;
-  /* DO NOT CHANGE. Add padding or margin to #content .section. */
-
+#content .content .field-name-body ul {
+  margin-left: 30px;
 }
-.sidebar-first #content {
-  width: 720px;
-  margin-left: 240px;
-  /* LTR */
-  /* The width of #sidebar-first. */
-
-  margin-right: -960px;
-  /* LTR */
-  /* Negative value of #content's width + left margin. */
-
+#content .content .field-name-body ul li {
+  list-style-type: disc;
+  margin: 5px 0;
 }
-.sidebar-second #content {
-  width: 720px;
-  margin-left: 0;
-  /* LTR */
-
-  margin-right: -720px;
-  /* LTR */
-  /* Negative value of #content's width + left margin. */
-
-}
-.two-sidebars #content {
-  width: 480px;
-  margin-left: 240px;
-  /* LTR */
-  /* The width of #sidebar-first */
-
-  margin-right: -720px;
-  /* LTR */
-  /* Negative value of #content's width + left margin. */
-
-}
-#content .section {
-  margin: 0 10px;
-  padding: 0;
-}
-/* @end content */
-/* @group Sidebar first */
-#sidebar-first {
-  float: left;
-  /* LTR */
-
-  width: 240px;
-  margin-left: 0;
-  /* LTR */
-
-  margin-right: -240px;
-  /* LTR */
-  /* Negative value of #sidebar-first's width + left margin. */
-
-  padding: 0;
-  /* DO NOT CHANGE. Add padding or margin to #sidebar-first .section. */
-
-}
-#sidebar-first .section {
-  margin: 0 10px;
-  /* LTR */
-
-  padding: 0;
-}
-/* @end first sidebar */
-/* @group Sidebar second */
-#sidebar-second {
-  float: left;
-  /* LTR */
-
-  width: 240px;
-  margin-left: 720px;
-  /* LTR */
-  /* Width of content + sidebar-first. */
-
-  margin-right: -960px;
-  /* LTR */
-  /* Negative value of .region-sidebar-second's width + left margin. */
-
-  padding: 0;
-  /* DO NOT CHANGE. Add padding or margin to .region-sidebar-second .section. */
-
-}
-#sidebar-second .section {
-  margin: 0 10px;
-  /* LTR */
-
-  padding: 0;
-}
-/* @end sidebar second */
-/* @end SEO content reordering */

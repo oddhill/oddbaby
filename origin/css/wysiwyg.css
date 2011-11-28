@@ -1,0 +1,31 @@
+/* 
+ *  This file is used by the wysiwyg editor.
+ *  Include it in the field "CSS path" as
+ *  %bsites/all/themes/<theme_name>/css/wysiwyg.css
+ *
+ *  Only body changes goes here, the rest in classes.less
+ */
+/**
+ *  This section is used for the wysiwyg and body content
+ *  (e.g. .content .field-name-body)
+ */
+.wysiwygStyle ul {
+  margin-left: 30px;
+}
+.wysiwygStyle ul li {
+  list-style-type: disc;
+  margin: 5px 0;
+}
+body {
+  background: #fff;
+  color: #000;
+  font-size: 14px !important;
+  line-height: 150% !important;
+}
+ul {
+  margin-left: 30px;
+}
+ul li {
+  list-style-type: disc;
+  margin: 5px 0;
+}
