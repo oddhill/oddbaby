@@ -10,6 +10,6 @@ Drupal.behaviors.ORIGIN = {
 // Run once when the DOM is ready (page load)
 $(document).ready(function() {
 
-}
+});
 
 })(jQuery);
