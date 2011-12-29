@@ -65,7 +65,12 @@ function origin_css_alter(&$css) {
  */
 function origin_preprocess_node(&$variables) {
   // Add the view mode to the template suggestions.
-  $variables['theme_hook_suggestions'][] = 'node__' . $variables['type'] . '__' . $variables['view_mode'];
+  $suggestions = array();
+  foreach ($variables['theme_hook_suggestions'] as $suggestion) {
+    $suggestions[] = $suggestion;
+    $suggestions[] = $suggestion . '__' . $variables['view_mode'];
+  }
+  $variables['theme_hook_suggestions'] = $suggestions;
 }
 
 /**
@@ -73,7 +78,12 @@ function origin_preprocess_node(&$variables) {
  */
 function origin_preprocess_field(&$variables, $hook) {
   // Add the view mode to the template suggestions.
-  $variables['theme_hook_suggestions'][] = 'field__' . $variables['element']['#field_name'] . '__' . $variables['element']['#view_mode'];
+  $suggestions = array();
+  foreach ($variables['theme_hook_suggestions'] as $suggestion) {
+    $suggestions[] = $suggestion;
+    $suggestions[] = $suggestion . '__' . $variables['view_mode'];
+  }
+  $variables['theme_hook_suggestions'] = $suggestions;
 }
 
 /**
