@@ -87,26 +87,22 @@ pre {
 
   margin: 0 0 21px 0;
 }
-ul, ol {
-  margin: 0;
-  padding: 0;
-}
-li {
-  list-style: none;
-  margin: 0;
-}
-/*  Messages */
 /**
  *  This section is used for the wysiwyg and body content
  *  (e.g. .content .field-name-body)
  */
-.wysiwygStyle ul {
+#wysiwygBundle {
+  /* Default body styling */
+
+}
+#wysiwygBundle .contentStyles ul {
   margin-left: 30px;
 }
-.wysiwygStyle ul li {
+#wysiwygBundle .contentStyles ul li {
   list-style-type: disc;
   margin: 5px 0;
 }
+/*  Messages */
 form .form-item {
   margin: 5px 0 15px;
 }
@@ -317,25 +313,7 @@ form select.form-select option {
   list-style-type: disc;
   margin: 5px 0;
 }
-#content .content .field-name-body ul {
-  margin-left: 30px;
-}
-#content .content .field-name-body ul li {
-  list-style-type: disc;
-  margin: 5px 0;
-}
 /*  Messages */
-/**
- *  This section is used for the wysiwyg and body content
- *  (e.g. .content .field-name-body)
- */
-.wysiwygStyle ul {
-  margin-left: 30px;
-}
-.wysiwygStyle ul li {
-  list-style-type: disc;
-  margin: 5px 0;
-}
 div.messages {
   border-style: solid;
   border-weight: 1px;

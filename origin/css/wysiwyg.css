@@ -1,5 +1,4 @@
-@import 'variables.less';
-
+/*  Messages */
 /**
  *  Font-familjer, även för Linux. Välj och klistra in nedan.
  *
@@ -14,12 +13,10 @@
   
  *  font-family: "Courier New", "DejaVu Sans Mono", monospace;
  */
-
 body {
   font-size: 14px;
   line-height: 21px;
 }
-
 body,
 caption,
 th,
@@ -34,7 +31,6 @@ fieldset {
   font-size: 14px;
   line-height: 21px;
 }
-
 pre,
 code,
 kbd,
@@ -43,89 +39,90 @@ tt,
 var {
   font-family: "Courier New", "DejaVu Sans Mono", monospace;
 }
-
 /* Vi sätter en standardmarginal på body font-size * 1,5 för att få en bra vertikal grundrytm. */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl,
-hr, table, fieldset {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+hr,
+table,
+fieldset {
   margin: 0 0 21px 0;
 }
-
 p {
   margin: 0 0 21px 0;
 }
-
 h1 {
   font-size: 28px;
   line-height: 42px;
   margin: 0 0 21px 0;
 }
-
 h2 {
   font-size: 21px;
   margin: 0 0 21px 0;
 }
-
 h3 {
   font-size: 18px;
   margin: 0 0 21px 0;
 }
-
-h4,
-h5,
-h6 {
+h4, h5, h6 {
   font-size: 16px;
   margin: 0 0 21px 0;
 }
-
 hr {
   height: 1px;
   border: 1px solid #666;
 }
-
 pre {
-  font-size: 15px; /* Monospace skrivs ut något mindre */
+  font-size: 15px;
+  /* Monospace skrivs ut något mindre */
+
   margin: 0 0 21px 0;
 }
-
 /**
  *  This section is used for the wysiwyg and body content
  *  (e.g. .content .field-name-body)
  */
 #wysiwygBundle {
-
   /* Default body styling */
-  .bodyStyles() {
-    body {
-      background: #fff;
-      color: #000;
-      font-size: 14px !important; /* Change this to whatever the body font size is */
-      line-height: 150% !important; /* Scales with font sizes */
-    }
-  }
-  
-  .contentStyles {
-    
-    h1 {
-    
-    }
-    
-    h2 {
-    
-    }
-    
-    h3 {
-    
-    }
-    
-    ul {
-      margin-left: 30px;
-      
-      li {
-        list-style-type: disc;
-        margin: 5px 0;
-      }
-    }
-  }
+
+}
+#wysiwygBundle .contentStyles ul {
+  margin-left: 30px;
+}
+#wysiwygBundle .contentStyles ul li {
+  list-style-type: disc;
+  margin: 5px 0;
+}
+/* 
+ *  This file is used by the wysiwyg editor.
+ *  Include it in the field "CSS path" as
+ *  %bsites/all/themes/<theme_name>/css/wysiwyg.css
+ *
+ *  This file do not have to be edited, make changes in classes.less instead
+ */
+body {
+  background: #fff;
+  color: #000;
+  font-size: 14px !important;
+  /* Change this to whatever the body font size is */
+
+  line-height: 150% !important;
+  /* Scales with font sizes */
+
+}
+ul {
+  margin-left: 30px;
+}
+ul li {
+  list-style-type: disc;
+  margin: 5px 0;
 }
