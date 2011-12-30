@@ -4,6 +4,15 @@
  *  Just enter the widths of the sidebars and content, including the margins (grid thinking here).
  *  Any gutter between columns should only be entered under each .section.
  */
+#page-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+}
+
+#main-wrapper {
+  position: relative;
+}
  
 /* @group Content */
 #content,
@@ -37,7 +46,6 @@
   margin: 0 10px;
   padding: 0;
 }
-
 /* @end content */
 
 /* @group Sidebar first */
@@ -69,3 +77,8 @@
   }
 }
 /* @end sidebar second */
+
+/* Insert wysiwyg rules to .field-name-body */
+#content .content .field-name-body {
+  .wysiwygStyle;
+}
