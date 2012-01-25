@@ -27,11 +27,11 @@ features[] = secondary_menu
 ; Regions.
 regions[header] = Header
 regions[help] = Help
-regions[page_top] = Page top
-regions[page_bottom] = Page bottom
+regions[content_top] = Content top
+regions[content] = Content
+regions[content_bottom] = Content bottom
 regions[sidebar_first] = Sidebar first
 regions[sidebar_second] = Sidebar second
-regions[content] = Content
 regions[footer] = Footer
 
 
