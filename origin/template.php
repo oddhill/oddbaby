@@ -81,7 +81,7 @@ function origin_preprocess_field(&$variables, $hook) {
   $suggestions = array();
   foreach ($variables['theme_hook_suggestions'] as $suggestion) {
     $suggestions[] = $suggestion;
-    $suggestions[] = $suggestion . '__' . $variables['view_mode'];
+    $suggestions[] = $suggestion . '__' . $variables['element']['#view_mode'];
   }
   $variables['theme_hook_suggestions'] = $suggestions;
 }
