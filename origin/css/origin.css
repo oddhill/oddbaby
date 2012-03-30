@@ -1,4 +1,14 @@
 /*  Messages */
+/* Typography */
+/**
+ *  Box Shadow, support for up to four shadows.
+ *  Input: horizontal, vertical, blur, spread, color
+ *  No need to print out px.
+ *  Ex: '.boxShadow(0, 2, 3, 0, rgba(0, 0, 0, 0.5) inset);'
+ */
+/**
+ * @group Typography
+ */
 /**
  *  Font-familjer, även för Linux. Välj och klistra in nedan.
  *
@@ -55,15 +65,15 @@ dl,
 hr,
 table,
 fieldset {
-  margin: 0 0 21px 0;
+  margin-bottom: 21px;
 }
 p {
-  margin: 0 0 21px 0;
+  margin-bottom: 21px;
 }
 h1 {
   font-size: 28px;
   line-height: 42px;
-  margin: 0 0 21px 0;
+  margin-bottom: 21px;
 }
 h2 {
   font-size: 21px;
@@ -71,11 +81,13 @@ h2 {
 }
 h3 {
   font-size: 18px;
-  margin: 0 0 21px 0;
+  margin-bottom: 21px;
 }
-h4, h5, h6 {
+h4,
+h5,
+h6 {
   font-size: 16px;
-  margin: 0 0 21px 0;
+  margin-bottom: 21px;
 }
 hr {
   height: 1px;
@@ -83,18 +95,14 @@ hr {
 }
 pre {
   font-size: 15px;
-  /* Monospace skrivs ut något mindre */
-
-  margin: 0 0 21px 0;
+  margin-bottom: 21px;
 }
 /**
- *  This section is used for the wysiwyg and body content
- *  (e.g. .content .field-name-body)
+ * This section is used for the wysiwyg and body content
+ * Example use: .content .field-name-body {
+ *                #wysiwygBundle > .contentStyles;
+ *              } 
  */
-#wysiwygBundle {
-  /* Default body styling */
-
-}
 #wysiwygBundle .contentStyles ul {
   margin-left: 30px;
 }
@@ -102,7 +110,12 @@ pre {
   list-style-type: disc;
   margin: 5px 0;
 }
-/*  Messages */
+/**
+ * @end typography
+ */
+/**
+ * @group Forms
+ */
 form .form-item {
   margin: 5px 0 15px;
 }
@@ -118,7 +131,8 @@ form .form-item label.option {
   font-weight: normal;
   padding-left: 5px;
 }
-form .form-item input.form-text, form .form-item textarea.form-textarea {
+form .form-item input.form-text,
+form .form-item textarea.form-textarea {
   background: #ffffff url('../graphics/input_bg.png') repeat-x top;
   border-top: 0px none;
   border-left: 1px solid #EDEDED;
@@ -128,7 +142,8 @@ form .form-item input.form-text, form .form-item textarea.form-textarea {
   padding: 5px 3px;
   color: #AAA;
 }
-form .form-item input.form-text.focused, form .form-item textarea.form-textarea.focused {
+form .form-item input.form-text.focused,
+form .form-item textarea.form-textarea.focused {
   color: #000;
 }
 form .form-item .description {
@@ -143,16 +158,10 @@ form fieldset {
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
 }
 form fieldset legend {
   background: #F6F6F6;
   padding: 5px 10px;
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -166,9 +175,6 @@ form fieldset select.form-select {
   background: #FFF;
   padding: 3px;
   color: #666;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -188,9 +194,6 @@ form input.form-submit {
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
 }
 form input.form-submit:hover {
   background: #CCC;
@@ -203,9 +206,6 @@ form select.form-select {
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
   border-top: 1px solid #E3E3E3;
   border-bottom: 1px solid #FFFFFF;
 }
@@ -213,6 +213,95 @@ form select.form-select option {
   background: #FFF;
   border-bottom: 1px solid #F6F6F6;
 }
+/**
+ * @end forms
+ */
+/**
+ * @group Messages
+ */
+div.messages {
+  border-style: solid;
+  border-weight: 1px;
+  font-size: 0.929em;
+  font-style: normal;
+  margin: 10px;
+  padding: 7px 15px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+div.messages::selection {
+  background: rgba(0, 0, 0, 0.25);
+}
+div.messages::-moz-selection {
+  background: rgba(0, 0, 0, 0.25);
+}
+div.messages.error {
+  background: #c43c35;
+  border-color: #9c302a;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+  color: #fff;
+  background-image: linear-gradient(top, #d2605a, #b03630);
+  background-image: -o-linear-gradient(top, #d2605a, #b03630);
+  background-image: -moz-linear-gradient(top, #d2605a, #b03630);
+  background-image: -webkit-linear-gradient(top, #d2605a, #b03630);
+  background-image: -ms-linear-gradient(top, #d2605a, #b03630);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.17, #d2605a), color-stop(1, #b03630));
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
+  -moz-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
+  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
+}
+div.messages.notice {
+  background: #339bb9;
+  border-color: #287a91;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+  color: #fff;
+  background-image: linear-gradient(top, #50b2cf, #2d8aa5);
+  background-image: -o-linear-gradient(top, #50b2cf, #2d8aa5);
+  background-image: -moz-linear-gradient(top, #50b2cf, #2d8aa5);
+  background-image: -webkit-linear-gradient(top, #50b2cf, #2d8aa5);
+  background-image: -ms-linear-gradient(top, #50b2cf, #2d8aa5);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.17, #50b2cf), color-stop(1, #2d8aa5));
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
+  -moz-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
+  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
+}
+div.messages.status {
+  background: #57a957;
+  border-color: #458845;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+  color: #fff;
+  background-image: linear-gradient(top, #79ba79, #4e984e);
+  background-image: -o-linear-gradient(top, #79ba79, #4e984e);
+  background-image: -moz-linear-gradient(top, #79ba79, #4e984e);
+  background-image: -webkit-linear-gradient(top, #79ba79, #4e984e);
+  background-image: -ms-linear-gradient(top, #79ba79, #4e984e);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.17, #79ba79), color-stop(1, #4e984e));
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
+  -moz-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
+  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
+}
+div.messages.warning {
+  background: #eedc94;
+  border-color: #e7ce68;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+  color: #404040;
+  background-image: linear-gradient(top, #f5eac0, #ebd57e);
+  background-image: -o-linear-gradient(top, #f5eac0, #ebd57e);
+  background-image: -moz-linear-gradient(top, #f5eac0, #ebd57e);
+  background-image: -webkit-linear-gradient(top, #f5eac0, #ebd57e);
+  background-image: -ms-linear-gradient(top, #f5eac0, #ebd57e);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.17, #f5eac0), color-stop(1, #ebd57e));
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) 1px 0px #444444;
+  -moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) 1px 0px #444444;
+  -webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) 1px 0px #444444;
+}
+/**
+ * @end messages
+ */
+/**
+ * @group Layout defaults
+ */
 /**
  *  We're printing the content before any sidebars, making an SEO friendly layout.
  *  This layout is dynamic and resizes #content depending on the number of sidebars.
@@ -227,8 +316,8 @@ form select.form-select option {
 #main-wrapper {
   position: relative;
 }
-/* @group Content */
-#content, .no-sidebars #content {
+#content,
+.no-sidebars #content {
   float: left;
   width: 960px;
   margin-left: 0;
@@ -268,8 +357,6 @@ form select.form-select option {
   margin: 0 10px;
   padding: 0;
 }
-/* @end content */
-/* @group Sidebar first */
 #sidebar-first {
   float: left;
   width: 240px;
@@ -285,8 +372,6 @@ form select.form-select option {
   margin: 0 10px;
   padding: 0;
 }
-/* @end first sidebar */
-/* @group Sidebar second */
 #sidebar-second {
   float: left;
   width: 240px;
@@ -304,8 +389,6 @@ form select.form-select option {
   margin: 0 10px;
   padding: 0;
 }
-/* @end sidebar second */
-/* Insert wysiwyg rules to .field-name-body */
 #content .content .field-name-body ul {
   margin-left: 30px;
 }
@@ -313,120 +396,6 @@ form select.form-select option {
   list-style-type: disc;
   margin: 5px 0;
 }
-/*  Messages */
-div.messages {
-  border-style: solid;
-  border-weight: 1px;
-  font-size: 0.929em;
-  font-style: normal;
-  margin: 10px;
-  padding: 7px 15px;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-}
-div.messages::selection {
-  background: rgba(0, 0, 0, 0.25);
-}
-div.messages::-moz-selection {
-  background: rgba(0, 0, 0, 0.25);
-}
-div.messages.error {
-  background: #c43c35;
-  border-color: #9c302a;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
-  color: #fff;
-  background-image: linear-gradient(top, #d2605a, #b03630);
-  background-image: -o-linear-gradient(top, #d2605a, #b03630);
-  background-image: -moz-linear-gradient(top, #d2605a, #b03630);
-  background-image: -webkit-linear-gradient(top, #d2605a, #b03630);
-  background-image: -ms-linear-gradient(top, #d2605a, #b03630);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.17, #d2605a), color-stop(1, #b03630));
-  background-image: linear-gradient(top, #d2605a, #b03630);
-  background-image: -o-linear-gradient(top, #d2605a, #b03630);
-  background-image: -moz-linear-gradient(top, #d2605a, #b03630);
-  background-image: -webkit-linear-gradient(top, #d2605a, #b03630);
-  background-image: -ms-linear-gradient(top, #d2605a, #b03630);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.17, #d2605a), color-stop(1, #b03630));
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  -moz-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  -moz-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-}
-div.messages.notice {
-  background: #339bb9;
-  border-color: #287a91;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
-  color: #fff;
-  background-image: linear-gradient(top, #50b2cf, #2d8aa5);
-  background-image: -o-linear-gradient(top, #50b2cf, #2d8aa5);
-  background-image: -moz-linear-gradient(top, #50b2cf, #2d8aa5);
-  background-image: -webkit-linear-gradient(top, #50b2cf, #2d8aa5);
-  background-image: -ms-linear-gradient(top, #50b2cf, #2d8aa5);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.17, #50b2cf), color-stop(1, #2d8aa5));
-  background-image: linear-gradient(top, #50b2cf, #2d8aa5);
-  background-image: -o-linear-gradient(top, #50b2cf, #2d8aa5);
-  background-image: -moz-linear-gradient(top, #50b2cf, #2d8aa5);
-  background-image: -webkit-linear-gradient(top, #50b2cf, #2d8aa5);
-  background-image: -ms-linear-gradient(top, #50b2cf, #2d8aa5);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.17, #50b2cf), color-stop(1, #2d8aa5));
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  -moz-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  -moz-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-}
-div.messages.status {
-  background: #57a957;
-  border-color: #458845;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
-  color: #fff;
-  background-image: linear-gradient(top, #79ba79, #4e984e);
-  background-image: -o-linear-gradient(top, #79ba79, #4e984e);
-  background-image: -moz-linear-gradient(top, #79ba79, #4e984e);
-  background-image: -webkit-linear-gradient(top, #79ba79, #4e984e);
-  background-image: -ms-linear-gradient(top, #79ba79, #4e984e);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.17, #79ba79), color-stop(1, #4e984e));
-  background-image: linear-gradient(top, #79ba79, #4e984e);
-  background-image: -o-linear-gradient(top, #79ba79, #4e984e);
-  background-image: -moz-linear-gradient(top, #79ba79, #4e984e);
-  background-image: -webkit-linear-gradient(top, #79ba79, #4e984e);
-  background-image: -ms-linear-gradient(top, #79ba79, #4e984e);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.17, #79ba79), color-stop(1, #4e984e));
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  -moz-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  -moz-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-  -webkit-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25) 1px 0px #444444;
-}
-div.messages.warning {
-  background: #eedc94;
-  border-color: #e7ce68;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
-  color: #404040;
-  background-image: linear-gradient(top, #f5eac0, #ebd57e);
-  background-image: -o-linear-gradient(top, #f5eac0, #ebd57e);
-  background-image: -moz-linear-gradient(top, #f5eac0, #ebd57e);
-  background-image: -webkit-linear-gradient(top, #f5eac0, #ebd57e);
-  background-image: -ms-linear-gradient(top, #f5eac0, #ebd57e);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.17, #f5eac0), color-stop(1, #ebd57e));
-  background-image: linear-gradient(top, #f5eac0, #ebd57e);
-  background-image: -o-linear-gradient(top, #f5eac0, #ebd57e);
-  background-image: -moz-linear-gradient(top, #f5eac0, #ebd57e);
-  background-image: -webkit-linear-gradient(top, #f5eac0, #ebd57e);
-  background-image: -ms-linear-gradient(top, #f5eac0, #ebd57e);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.17, #f5eac0), color-stop(1, #ebd57e));
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) 1px 0px #444444;
-  -moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) 1px 0px #444444;
-  -webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) 1px 0px #444444;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) 1px 0px #444444;
-  -moz-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) 1px 0px #444444;
-  -webkit-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) 1px 0px #444444;
-}
+/**
+ * @end layout defaults
+ */

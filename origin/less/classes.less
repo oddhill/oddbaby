@@ -1,9 +1,24 @@
 @import 'variables';
 
-.boxShadow (@x: 0px, @y: 0px, @blur: 1px, @color: #000) {
-  box-shadow: @arguments;
-  -moz-box-shadow: @arguments;
-  -webkit-box-shadow: @arguments;
+/**
+ *  Box Shadow, support for up to four shadows.
+ *  Input: horizontal, vertical, blur, spread, color
+ *  No need to print out px.
+ *  Ex: '.boxShadow(0, 2, 3, 0, rgba(0, 0, 0, 0.5) inset);'
+ */
+.boxShadow(
+  @hr1: 0, @vr1: 0, @blur1: 0, @spread1: 0, @colorOne : transparent, 
+  @hr2: 0, @vr2: 0, @blur2: 0, @spread2: 0, @colorTwo : transparent, 
+  @hr3: 0, @vr3: 0, @blur3: 0, @spread3: 0, @colorThree : transparent,
+  @hr4: 0, @vr4: 0, @blur4: 0, @spread4: 0, @colorFive : transparent) {
+    @val : @hr1 * 1px @vr1 * 1px  @blur1 * 1px @spread1 * 1px @colorOne,
+    @hr2 * 1px @vr2 * 1px  @blur2 * 1px @spread2 * 1px @colorTwo,
+    @hr3 * 1px @vr3 * 1px  @blur3 * 1px @spread3 * 1px @colorThree,
+    @hr4 * 1px @vr4 * 1px  @blur4 * 1px @spread4 * 1px @colorFive;
+
+    -moz-box-shadow: @val;
+    -webkit-box-shadow: @val;
+    box-shadow: @val;
 }
 
 .gradient(@color: #CCCCCC, @lighten: 10%, @darken: 10%) {

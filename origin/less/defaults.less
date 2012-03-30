@@ -1,0 +1,412 @@
+@import 'classes.less';
+
+/**
+ * @group Typography
+ */
+
+ /**
+ *  Font-familjer, även för Linux. Välj och klistra in nedan.
+ *
+ *  font-family: "Times New Roman", Times, Georgia, "DejaVu Serif", serif;
+ *  font-family: Times, "Times New Roman", Georgia, "DejaVu Serif", serif;
+ *  font-family: Georgia, "Times New Roman", "DejaVu Serif", serif;
+  
+ *  font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+ *  font-family: Tahoma, Verdana, "DejaVu Sans", sans-serif;
+ *  font-family: Helvetica, Arial, "Nimbus Sans L", sans-serif;
+ *  font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  
+ *  font-family: "Courier New", "DejaVu Sans Mono", monospace;
+ */
+
+body {
+  font-size: @defaultFontSize;
+  line-height: @defaultLineHeight;
+}
+
+body,
+caption,
+th,
+td,
+input,
+textarea,
+select,
+option,
+legend,
+fieldset {
+  font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  font-size: @defaultFontSize;
+  line-height: @defaultLineHeight;
+}
+
+pre,
+code,
+kbd,
+samp,
+tt,
+var {
+  font-family: "Courier New", "DejaVu Sans Mono", monospace;
+}
+
+/* Vi sätter en standardmarginal på body font-size * 1,5 för att få en bra vertikal grundrytm. */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl,
+hr, table, fieldset {
+  margin-bottom: @defaultFontMarginBottom;
+}
+
+a {
+  
+}
+
+p {
+  margin-bottom: @defaultFontMarginBottom;
+}
+
+h1 {
+  font-size: 28px;
+  line-height: 42px;
+  margin-bottom: @defaultFontMarginBottom;
+}
+
+h2 {
+  font-size: 21px;
+  margin: 0 0 21px 0;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: @defaultFontMarginBottom;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 16px;
+  margin-bottom: @defaultFontMarginBottom;
+}
+
+hr {
+  height: 1px;
+  border: 1px solid #666;
+}
+
+pre {
+  font-size: 15px; // Monospace skrivs ut något mindre
+  margin-bottom: @defaultFontMarginBottom;
+}
+
+/**
+ * This section is used for the wysiwyg and body content
+ * Example use: .content .field-name-body {
+ *                #wysiwygBundle > .contentStyles;
+ *              } 
+ */
+#wysiwygBundle {
+
+  // Default body styling
+  .bodyStyles() {
+    body {
+      background: #fff;
+      color: #000;
+      font-size: 14px !important; /* Change this to whatever the body font size is */
+      line-height: 150% !important; /* Scales with font sizes */
+    }
+  }
+  
+  .contentStyles {
+    
+    h1 {
+    
+    }
+    
+    h2 {
+    
+    }
+    
+    h3 {
+    
+    }
+    
+    ul {
+      margin-left: 30px;
+      
+      li {
+        list-style-type: disc;
+        margin: 5px 0;
+      }
+    }
+  }
+}
+/**
+ * @end typography
+ */
+
+
+
+/**
+ * @group Forms
+ */
+form {
+
+  .form-item {
+    margin: 5px 0 15px;
+  
+    label {
+      display: block;
+      font-weight: bold;
+      
+      span.form-required {
+        color: @message_red;
+      }
+      
+      &.option {
+        display: inline;
+        font-weight: normal;
+        padding-left: 5px;
+      }
+    }
+    
+    input.form-text,
+    textarea.form-textarea {
+      background: #FFF url('../graphics/input_bg.png') repeat-x top;
+      border-top: 0px none;
+      border-left: 1px solid #EDEDED;
+      border-right: 1px solid #EDEDED;
+      border-bottom: 1px solid #f6f6f6;
+      font-size: 1.2em;
+      padding: 5px 3px;
+      color: #AAA;
+      
+      &.focused {
+        color: #000;
+      }
+    }
+    
+    .description {
+      font-size: 0.9em;
+      color: #AAA;
+    }
+  }
+  
+  fieldset {
+    background: #F6F6F6;
+    padding: 10px;
+    margin: 5px 0 15px;
+    position: relative;
+    .roundedCorners(4px);
+    
+    legend {
+      background: #F6F6F6;
+      padding: 5px 10px;
+      .roundedCorners(3px);
+      font-size: 1.2em;
+      font-weight: bold;
+      
+      a {
+        text-decoration: none;
+      }
+    }
+    
+    select.form-select {
+      background: #FFF;
+      padding: 3px;
+      color: #666;
+      .roundedCorners(4px);
+      border-top: 1px solid #E3E3E3;
+      border-bottom: 1px solid #FFFFFF;
+      
+      option {
+        background: #FFF;
+        border-bottom: 1px solid #F6F6F6;
+      }
+    }
+  }
+  
+  input.form-submit {
+    background: #EEE;
+    color: #333;
+    padding: 5px 10px;
+    margin: 5px 5px 5px 0;
+    cursor: pointer;
+    .roundedCorners(4px);
+    
+    &:hover {
+      background: #CCC;
+      color: #000;
+    }
+  }
+  
+  select.form-select {
+    background: #EEE;
+    padding: 3px;
+    color: #666;
+    .roundedCorners(4px);
+    border-top: 1px solid #E3E3E3;
+    border-bottom: 1px solid #FFFFFF;
+    
+    option {
+      background: #FFF;
+      border-bottom: 1px solid #F6F6F6;
+    }
+  }
+}
+/**
+ * @end forms
+ */
+
+
+
+/**
+ * @group Messages
+ */
+div.messages {
+  border-style: solid;
+  border-weight: 1px;
+  font-size: 0.929em;
+  font-style: normal;
+  margin: 10px;
+  padding: 7px 15px;
+  .roundedCorners(4px);
+  
+  &::selection {
+    background: @darker;
+  }
+  
+  &::-moz-selection {
+    background: @darker;
+  }
+  
+  &.error {
+    background: @message_red;
+    border-color: darken(@message_red,10%);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+    color: #fff;
+    .gradient(@message_red, 10%, 5%);
+    .textShadow(0 -1px 0 @darker);
+    
+  }
+  
+  &.notice {
+    background: @message_blue;
+    border-color: darken(@message_blue,10%);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+    color: #fff;
+    .gradient(@message_blue, 10%, 5%);
+    .textShadow(0 -1px 0 @darker);
+  }
+  
+  &.status {
+    background: @message_green;
+    border-color: darken(@message_green,10%);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+    color: #fff;
+    .gradient(@message_green, 10%, 5%);
+    .textShadow(0 -1px 0 @darker);
+  }
+
+  &.warning {
+    background: @message_yellow;
+    border-color: darken(@message_yellow,10%);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+    color: #404040;
+    .gradient(@message_yellow, 10%, 5%);
+    .textShadow(0 1px 0 @lighter);   
+  }
+}
+/**
+ * @end messages
+ */
+
+
+
+/**
+ * @group Layout defaults
+ */
+
+ /**
+ *  We're printing the content before any sidebars, making an SEO friendly layout.
+ *  This layout is dynamic and resizes #content depending on the number of sidebars.
+ *  Just enter the widths of the sidebars and content, including the margins (grid thinking here).
+ *  Any gutter between columns should only be entered under each .section.
+ */
+#page-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+}
+
+#main-wrapper {
+  position: relative;
+}
+ 
+// Content
+#content,
+.no-sidebars #content {
+  float: left;
+  width: 960px;
+  margin-left: 0;
+  margin-right: -960px; /* Negative value of #content's width + left margin. */
+  padding: 0; /* DO NOT CHANGE. Add padding or margin to #content .section. */
+}
+
+.sidebar-first #content {
+  width: 720px;
+  margin-left: 240px; /* The width of #sidebar-first. */
+  margin-right: -960px; /* Negative value of #content's width + left margin. */
+}
+
+.sidebar-second #content {
+  width: 720px;
+  margin-left: 0;
+  margin-right: -720px; /* Negative value of #content's width + left margin. */
+}
+
+.two-sidebars #content {
+  width: 480px;
+  margin-left: 240px; /* The width of #sidebar-first */
+  margin-right: -720px; /* Negative value of #content's width + left margin. */
+}
+
+#content .section {
+  margin: 0 10px;
+  padding: 0;
+}
+
+// Sidebar first
+#sidebar-first {
+  float: left;
+  width: 240px;
+  margin-left: 0;
+  margin-right: -240px; /* Negative value of #sidebar-first's width + left margin. */
+  padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-first .section. */
+  
+  .section {
+    margin: 0 10px;
+    padding: 0;
+  }
+}
+
+// Sidebar second
+#sidebar-second {
+  float: left;
+  width: 240px;
+  margin-left: 720px; /* Width of content + sidebar-first. */
+  margin-right: -960px; /* Negative value of #sidebar-second's width + left margin. */
+  padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-second .section. */
+  
+  .section {
+    margin: 0 10px;
+    padding: 0;
+  }
+}
+
+// Insert wysiwyg rules to .field-name-body
+#content .content .field-name-body {
+  #wysiwygBundle > .contentStyles;
+}
+
+/**
+ * @end layout defaults
+ */
