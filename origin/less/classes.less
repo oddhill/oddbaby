@@ -1,4 +1,4 @@
-@import 'variables';
+@import 'variables.less';
 
 /**
  *  Box Shadow, support for up to four shadows.
@@ -30,6 +30,37 @@
 	background-image: -ms-linear-gradient(top, lighten(@color, @lighten), darken(@color, @darken));	
 }
 
+#gradient {
+
+  .horizontal (@startColor: #555, @endColor: #333, @backgroundColor: @endColor) {
+    background-color: @backgroundColor;
+   background-repeat: repeat-x;
+   background-image: -khtml-gradient(linear, left top, right top, from(@startColor), to(@endColor)); /* Konqueror */
+   background-image: -moz-linear-gradient(left, @startColor, @endColor); /* FF 3.6+ */
+   background-image: -ms-linear-gradient(left, @startColor, @endColor); /* IE10 */
+   background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, @startColor), color-stop(100%, @endColor)); /* Safari 4+, Chrome 2+ */
+   background-image: -webkit-linear-gradient(left, @startColor, @endColor); /* Safari 5.1+, Chrome 10+ */
+   background-image: -o-linear-gradient(left, @startColor, @endColor); /* Opera 11.10 */
+   filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",@startColor,@endColor)); /* IE6 & IE7 */
+   -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",@startColor,@endColor); /* IE8+ */
+   background-image: linear-gradient(left, @startColor, @endColor); /* the standard */
+  }
+
+  .vertical (@startColor: #555, @endColor: #333, @backgroundColor: @endColor) {
+    background-color: @backgroundColor;
+    background-repeat: repeat-x;
+    background-image: -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor)); /* Konqueror */
+    background-image: -moz-linear-gradient(@startColor, @endColor); /* FF 3.6+ */
+    background-image: -ms-linear-gradient(@startColor, @endColor); /* IE10 */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @startColor), color-stop(100%, @endColor)); /* Safari 4+, Chrome 2+ */
+    background-image: -webkit-linear-gradient(@startColor, @endColor); /* Safari 5.1+, Chrome 10+ */
+    background-image: -o-linear-gradient(@startColor, @endColor); /* Opera 11.10 */
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor)); /* IE6 & IE7 */
+    -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor); /* IE8+ */
+    background-image: linear-gradient(@startColor, @endColor); /* the standard */
+  }
+}
+
 .roundedCorners(@radius: 3px) {
   border-radius: @radius;
   -moz-border-radius: @radius;
@@ -40,4 +71,13 @@
   text-shadow: @arguments;
   -moz-text-shadow: @arguments;
   -webkit-text-shadow: @arguments;
+}
+
+.size(@width: 5px, @height: 5px) {
+  width: @width;
+  height: @height;
+}
+
+.bgImg(@img, @x:left, @y:top, @repeat:no-repeat) {
+  background: url('../graphics/@{img}') @x * 1px @y * 1px @repeat;
 }
