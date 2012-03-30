@@ -65,25 +65,25 @@ p {
 }
 
 h1 {
-  font-size: 28px;
+  font-size: @headerOne;
   line-height: 42px;
   margin-bottom: @defaultFontMarginBottom;
 }
 
 h2 {
-  font-size: 21px;
-  margin: 0 0 21px 0;
+  font-size: @headerTwo;
+  margin-bottom: @defaultFontMarginBottom;
 }
 
 h3 {
-  font-size: 18px;
+  font-size: @headerThree;
   margin-bottom: @defaultFontMarginBottom;
 }
 
 h4,
 h5,
 h6 {
-  font-size: 16px;
+  font-size: @headerFour;
   margin-bottom: @defaultFontMarginBottom;
 }
 
@@ -93,7 +93,7 @@ hr {
 }
 
 pre {
-  font-size: 15px; // Monospace skrivs ut något mindre
+  font-size: @defaultFontSize + 1; // Monospace skrivs ut något mindre
   margin-bottom: @defaultFontMarginBottom;
 }
 
@@ -110,8 +110,8 @@ pre {
     body {
       background: #fff;
       color: #000;
-      font-size: 14px !important; /* Change this to whatever the body font size is */
-      line-height: 150% !important; /* Scales with font sizes */
+      font-size: @defaultFontSize !important; /* Change this to whatever the body font size is */
+      line-height: @defaultLineHeight !important; /* Scales with font sizes */
     }
   }
   
@@ -264,11 +264,11 @@ form {
 div.messages {
   border-style: solid;
   border-weight: 1px;
-  font-size: 0.929em;
+  font-size: @defaultFontSize - 1;
   font-style: normal;
   margin: 10px;
   padding: 7px 15px;
-  .roundedCorners(4px);
+  .roundedCorners();
   
   &::selection {
     background: @darker;
@@ -281,7 +281,7 @@ div.messages {
   &.error {
     background: @message_red;
     border-color: darken(@message_red,10%);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+    .boxShadow(0, 1, 0, 0, rgba(255, 255, 255, 0.25) inset);
     color: #fff;
     .gradient(@message_red, 10%, 5%);
     .textShadow(0 -1px 0 @darker);
@@ -291,7 +291,7 @@ div.messages {
   &.notice {
     background: @message_blue;
     border-color: darken(@message_blue,10%);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+    .boxShadow(0, 1, 0, 0, rgba(255, 255, 255, 0.25) inset);
     color: #fff;
     .gradient(@message_blue, 10%, 5%);
     .textShadow(0 -1px 0 @darker);
@@ -300,7 +300,7 @@ div.messages {
   &.status {
     background: @message_green;
     border-color: darken(@message_green,10%);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+    .boxShadow(0, 1, 0, 0, rgba(255, 255, 255, 0.25) inset);
     color: #fff;
     .gradient(@message_green, 10%, 5%);
     .textShadow(0 -1px 0 @darker);
@@ -309,7 +309,7 @@ div.messages {
   &.warning {
     background: @message_yellow;
     border-color: darken(@message_yellow,10%);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+    .boxShadow(0, 1, 0, 0, rgba(255, 255, 255, 0.25) inset);
     color: #404040;
     .gradient(@message_yellow, 10%, 5%);
     .textShadow(0 1px 0 @lighter);   

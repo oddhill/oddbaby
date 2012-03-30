@@ -5,6 +5,7 @@
  *  Input: horizontal, vertical, blur, spread, color
  *  No need to print out px.
  *  Ex: '.boxShadow(0, 2, 3, 0, rgba(0, 0, 0, 0.5) inset);'
+ *      '.boxShadow(0, 2, 3, 0, #000);'
  */
 .boxShadow(
   @hr1: 0, @vr1: 0, @blur1: 0, @spread1: 0, @colorOne : transparent, 
@@ -27,14 +28,6 @@
 	background-image: -moz-linear-gradient(top, lighten(@color, @lighten), darken(@color, @darken));
 	background-image: -webkit-linear-gradient(top, lighten(@color, @lighten), darken(@color, @darken));
 	background-image: -ms-linear-gradient(top, lighten(@color, @lighten), darken(@color, @darken));	
-	
-	background-image: -webkit-gradient(
-		linear,
-		left top,
-		left bottom,
-		color-stop(0.17, lighten(@color, @lighten)),
-		color-stop(1, darken(@color, @darken))
-	);
 }
 
 .roundedCorners(@radius: 3px) {
