@@ -1,32 +1,40 @@
 <?php
-/**  
+/**
  * Uncomment if you want to enable apple touch icons.
- * Create icons in sizes 57x57, 72x72 and 114x114
+ * Create icons in different sizes
+ * Reference: http://developer.apple.com/library/ios/#documentation/UserExperience/Conceptual/MobileHIG/IconsImages/IconsImages.html
  */
 /* <-- REMOVE THIS LINE -->
-// iPhone.
+// iPhone / iPod touch.
 $icons['iphone_icon'] = array(
-  'href' => file_create_url(drupal_get_path('theme','ORIGIN') . '/apple-touch-icon-iphone.png'),
+  'href' => file_create_url(drupal_get_path('theme','origin') . '/apple-touch-icon-57x57.png'),
   'rel' => 'apple-touch-icon',
+  'sizes' => '57x57',
+);
+// iPhone / iPod touch retina and above.
+$icons['iphone4_icon'] = array(
+  'href' => file_create_url(drupal_get_path('theme','origin') . '/apple-touch-icon-114x114.png'),
+  'rel' => 'apple-touch-icon',
+  'sizes' => '114x114',
 );
 // iPad.
 $icons['ipad_icon'] = array(
-  'href' => file_create_url(drupal_get_path('theme','ORIGIN') . '/apple-touch-icon-ipad.png'),
+  'href' => file_create_url(drupal_get_path('theme','origin') . '/apple-touch-icon-72x72.png'),
   'rel' => 'apple-touch-icon',
   'sizes' => '72x72',
 );
-// iPhone 4.
-$icons['iphone4_icon'] = array(
-  'href' => file_create_url(drupal_get_path('theme','ORIGIN') . '/apple-touch-icon-iphone4.png'),
+// iPad retina.
+$icons['ipad_icon'] = array(
+  'href' => file_create_url(drupal_get_path('theme','origin') . '/apple-touch-icon-144x144.png'),
   'rel' => 'apple-touch-icon',
-  'sizes' => '114x114',
+  'sizes' => '144x144',
 );
 // Add the icons to <head>.
 foreach ($icons as $key => $icon) {
   $element = array(
     '#tag' => 'link',
     '#attributes' => array(
-      'href' => $icon['href'], 
+      'href' => $icon['href'],
       'rel' => $icon['rel'],
       'sizes' => $icon['sizes'],
     ),
@@ -89,7 +97,7 @@ function origin_preprocess_field(&$variables, $hook) {
 /**
  * Implements template_preprocess_block(),
  */
-function origin_preprocess_block(&$variables) {  
+function origin_preprocess_block(&$variables) {
   // Alter the title for some blocks.
   // Manually configured here, because Features doesn't export block configurations.
   switch ($variables['block']->bid) {
@@ -117,6 +125,6 @@ function origin_menu_local_tasks($variables) {
     $variables['secondary']['#suffix'] = '</ul>';
     $output .= drupal_render($variables['secondary']);
   }
-  
+
   return $output;
 }
