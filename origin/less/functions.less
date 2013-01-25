@@ -1,0 +1,80 @@
+// -----------------------------------------------------------------------------
+//
+//  Variables
+//
+// -----------------------------------------------------------------------------
+
+
+// Typography
+
+@defaultFontSize: 14px;
+@defaultLineHeight: @defaultFontSize * 1.5;
+
+@headerOne: 28px;
+@headerTwo: 21px;
+@headerThree: 18px;
+@headerFour: 16px;
+
+@fontSizeOne: 18px;
+@fontSizeTwo: 16px;
+@fontSizeThree: 14px;
+
+
+// -----------------------------------------------------------------------------
+//
+//  Classes
+//
+// -----------------------------------------------------------------------------
+
+ //  Box Shadow, support for up to four shadows.
+ //  Input: horizontal, vertical, blur, spread, color
+ //  No need to print out px.
+ //  Ex: '.boxShadow(0, 2, 3, 0, rgba(0, 0, 0, 0.5) inset);'
+ //      '.boxShadow(0, 2, 3, 0, #000);'
+
+.boxShadow (
+  @hr1: 0, @vr1: 0, @blur1: 0, @spread1: 0, @colorOne : transparent,
+  @hr2: 0, @vr2: 0, @blur2: 0, @spread2: 0, @colorTwo : transparent,
+  @hr3: 0, @vr3: 0, @blur3: 0, @spread3: 0, @colorThree : transparent,
+  @hr4: 0, @vr4: 0, @blur4: 0, @spread4: 0, @colorFive : transparent) {
+    @val : @hr1 * 1px @vr1 * 1px  @blur1 * 1px @spread1 * 1px @colorOne,
+    @hr2 * 1px @vr2 * 1px  @blur2 * 1px @spread2 * 1px @colorTwo,
+    @hr3 * 1px @vr3 * 1px  @blur3 * 1px @spread3 * 1px @colorThree,
+    @hr4 * 1px @vr4 * 1px  @blur4 * 1px @spread4 * 1px @colorFive;
+
+    -moz-box-shadow: @val;
+    -webkit-box-shadow: @val;
+    box-shadow: @val;
+}
+
+.gradient (@startColor: #555, @endColor: #333, @backgroundColor: transparent) {
+  background-color: @backgroundColor;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(@startColor), to(@endColor)); // Konqueror
+  background-image: -moz-linear-gradient(@startColor, @endColor); // FF 3.6+
+  background-image: -ms-linear-gradient(@startColor, @endColor); // IE10
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @startColor), color-stop(100%, @endColor)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(@startColor, @endColor); // Safari 5.1+, Chrome 10+
+  background-image: -o-linear-gradient(@startColor, @endColor); // Opera 11.10
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor)); // IE6 & IE7
+  -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor); // IE8+
+  background-image: linear-gradient(@startColor, @endColor); // the standard
+}
+
+.roundedCorners (@radius: 3) {
+  border-radius: @radius * 1px;
+  -moz-border-radius: @radius * 1px;
+  -webkit-border-radius: @radius * 1px;
+}
+
+.textShadow (@x: 0, @y: 1, @blur: 0, @color: #444) {
+  @arguments: @x * 1px @y * 1px @blur * 1px @color;
+  text-shadow: @arguments;
+  -moz-text-shadow: @arguments;
+  -webkit-text-shadow: @arguments;
+}
+
+.size (@width: 100, @height: 100) {
+  width: @width * 1px;
+  height: @height * 1px;
+}

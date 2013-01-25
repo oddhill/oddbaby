@@ -1,43 +1,18 @@
 ; The name and description of the theme used on the admin/build/themes page.
 name = Origin
 description = This is the theme for this particular site
+version = 7.x-2.0 beta
 core = 7.x
 
-
 ; Stylesheets.
-stylesheets[screen][] = css_defaults/reset.css
-stylesheets[print][] = css_defaults/print.css
-stylesheets[screen][] = css/origin.css
+stylesheets[screen][] = css/reset.css
+stylesheets[print][] = css/print.css
+stylesheets[screen][] = css/main.css
 
 ; Javascript files.
-scripts[] = js/origin.js
-
-
-; Theme settings.
-features[] = logo
-features[] = name
-features[] = slogan
-features[] = node_user_picture
-features[] = comment_user_picture
-features[] = favicon
-features[] = main_menu
-features[] = secondary_menu
-
+scripts[] = js/main.js
 
 ; Regions.
 regions[header] = Header
 regions[help] = Help
-regions[content_top] = Content top
-regions[content] = Content
-regions[content_bottom] = Content bottom
-regions[sidebar_first] = Sidebar first
-regions[sidebar_second] = Sidebar second
 regions[footer] = Footer
-
-
-; <layout name> layout.
-;layouts[layout_name][name] = "Namnet på layouten"
-;layouts[layout_name][description] = "Beskrivning av layouten"
-;layouts[layout_name][template] = "/templates/page/page"
-;layouts[layout_name][stylesheet] = "css/layout_name.css"
-;layouts[layout_name][regions][] = "header"
