@@ -1,122 +1,65 @@
 <?php
-/**  
- * Uncomment if you want to enable apple touch icons.
- * Create icons in sizes 57x57, 72x72 and 114x114
+/**
+ * @file
+ * TODO: Comment this file.
  */
-/* <-- REMOVE THIS LINE -->
-// iPhone.
-$icons['iphone_icon'] = array(
-  'href' => file_create_url(drupal_get_path('theme','ORIGIN') . '/apple-touch-icon-iphone.png'),
-  'rel' => 'apple-touch-icon',
-);
-// iPad.
-$icons['ipad_icon'] = array(
-  'href' => file_create_url(drupal_get_path('theme','ORIGIN') . '/apple-touch-icon-ipad.png'),
-  'rel' => 'apple-touch-icon',
-  'sizes' => '72x72',
-);
-// iPhone 4.
-$icons['iphone4_icon'] = array(
-  'href' => file_create_url(drupal_get_path('theme','ORIGIN') . '/apple-touch-icon-iphone4.png'),
-  'rel' => 'apple-touch-icon',
-  'sizes' => '114x114',
-);
-// Add the icons to <head>.
-foreach ($icons as $key => $icon) {
-  $element = array(
-    '#tag' => 'link',
-    '#attributes' => array(
-      'href' => $icon['href'], 
-      'rel' => $icon['rel'],
-      'sizes' => $icon['sizes'],
-    ),
-  );
-  drupal_add_html_head($element, $key);
-}
-*/ //<-- REMOVE THIS LINE -->
 
 /**
  * Implements hook_css_alter().
- * This keeps system and module css files from being
- * rendered by drupal.
- *
- * Omitted:
- * - color.css
- * - contextual.css
- * - dashboard.css
- * - field_ui.css
- * - image.css
- * - locale.css
- * - shortcut.css
- * - simpletest.css
- * - toolbar.css
  */
 function origin_css_alter(&$css) {
-  $exclude = array(
-    'modules/system/system.menus.css' => FALSE,
-    'modules/system/system.messages.css' => FALSE,
-    'modules/system/system.theme.css' => FALSE,
+  // Specify the CSS files that we want to include.
+  $include = array(
+    'modules/system/system.base.css',
+    'profiles/odddrupal/modules/custom/fanta/fanta.css',
+    'profiles/odddrupal/modules/contrib/date/date_popup/themes/datepicker.1.7.css',
+    'profiles/odddrupal/modules/contrib/extlink/extlink.css',
+    'modules/contextual/contextual.css',
+    'profiles/odddrupal/modules/contrib/admin_menu/admin_menu.css',
+    'profiles/odddrupal/modules/contrib/admin_menu/admin_menu.uid1.css',
+    'profiles/odddrupal/modules/contrib/admin_menu/admin_menu_toolbar/admin_menu_toolbar.css',
+    'modules/shortcut/shortcut.css',
   );
-  $css = array_diff_key($css, $exclude);
-}
 
-/**
- * Implements template_preprocess_node().
- */
-function origin_preprocess_node(&$variables) {
-  // Add the view mode to the template suggestions.
-  $suggestions = array();
-  foreach ($variables['theme_hook_suggestions'] as $suggestion) {
-    $suggestions[] = $suggestion;
-    $suggestions[] = $suggestion . '__' . $variables['view_mode'];
-  }
-  $variables['theme_hook_suggestions'] = $suggestions;
-}
+  // Get the path to this theme. We'd like to keep every CSS file that's been
+  // added to the theme.
+  $origin_path = drupal_get_path('theme', 'origin');
 
-/**
- * Implements template_preprocess_field(),
- */
-function origin_preprocess_field(&$variables, $hook) {
-  // Add the view mode to the template suggestions.
-  $suggestions = array();
-  foreach ($variables['theme_hook_suggestions'] as $suggestion) {
-    $suggestions[] = $suggestion;
-    $suggestions[] = $suggestion . '__' . $variables['element']['#view_mode'];
-  }
-  $variables['theme_hook_suggestions'] = $suggestions;
-}
-
-/**
- * Implements template_preprocess_block(),
- */
-function origin_preprocess_block(&$variables) {  
-  // Alter the title for some blocks.
-  // Manually configured here, because Features doesn't export block configurations.
-  switch ($variables['block']->bid) {
-    case 'system-main-menu':
-      $variables['block']->subject = '';
-      break;
+  // Iterate through the loaded CSS file, and remove the ones that hasn't been
+  // specified in the array above, or isn't located in the path for this theme.
+  foreach ($css as $key => $data) {
+    if (!in_array($key, $include) && strpos($key, $origin_path) !== 0) {
+      unset($css[$key]);
+    }
   }
 }
 
 /**
- * Overrides theme_menu_local_tasks().
+ * Implements hook_css_alter().
  */
-function origin_menu_local_tasks($variables) {
-  // Add Contextual links library, if it hasn't been added already.
-  drupal_add_library('contextual', 'contextual-links');
+function origin_js_alter(&$js) {
+  // Specify the javascript files that we want to exclude.
+  $exclude = array(
+    'profiles/odddrupal/modules/contrib/views/js/jquery.ui.dialog.patch.js',
+    'profiles/odddrupal/modules/contrib/boxes/boxes.js',
+    'profiles/odddrupal/modules/contrib/context/plugins/context_reaction_block.js',
+  );
 
-  $output = '';
-  if (!empty($variables['primary'])) {
-    $variables['primary']['#prefix'] = '<div class="contextual-links-wrapper"><ul class="contextual-links">';
-    $variables['primary']['#suffix'] = '</ul></div>';
-    $output .= drupal_render($variables['primary']);
+  // Iterate through each excluded javascript file, and remove it from the
+  // loaded files.
+  foreach ($exclude as $file) {
+    unset($js[$file]);
   }
-  if (!empty($variables['secondary'])) {
-    $variables['secondary']['#prefix'] = '<ul class="tabs secondary clearfix">';
-    $variables['secondary']['#suffix'] = '</ul>';
-    $output .= drupal_render($variables['secondary']);
-  }
-  
-  return $output;
+
+  // Replace the jQuery version that's provided bu jQuery update with a version
+  // of our choise.
+  $js['https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'] = $js['https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js'];
+  $js['https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js']['data'] = 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js';
+  $js['https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js']['version'] = '1.7.2';
+  unset($js['https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js']);
 }
+
+// Include the preprocess and theme files. These includes preprocess
+// implementations and theme overrides.
+include_once 'preprocess.inc';
+include_once 'theme.inc';
