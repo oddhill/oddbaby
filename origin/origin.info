@@ -2,12 +2,12 @@ name = Origin
 core = 7.x
 
 ; Stylesheets.
-stylesheets[screen][] = css_defaults/reset.css
-stylesheets[print][] = css_defaults/print.css
-stylesheets[screen][] = css/origin.css
+stylesheets[screen][] = css/reset.css
+stylesheets[print][] = css/print.css
+stylesheets[screen][] = css/main.css
 
 ; Javascripts.
-scripts[] = js/origin.js
+scripts[] = js/main.js
 
 ; Regions.
 regions[header] = Header
