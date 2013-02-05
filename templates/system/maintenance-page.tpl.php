@@ -1,9 +1,11 @@
 <?php
-// $Id: maintenance-page.tpl.php,v 1.10 2010/11/24 03:30:59 webchick Exp $
-
 /**
  * @file
  * Default theme implementation to display a single Drupal page while offline.
+ *
+ * This file will be used when the site is in maintance mode, or when an error
+ * occurs. It will then override any other template files, including the
+ * html.tpl.php.
  *
  * All the available variables are mirrored in html.tpl.php and page.tpl.php.
  * Some may be blank but they are provided for consistency.
@@ -21,58 +23,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type="text/javascript">
-  /*
-   * 
-   * Center Plugin 1.0 - Easy cross-browser centering a div!
-   * Version 1.0.1
-   * @requires jQuery v1.3.0
-   * 
-   * Copyright (c) 2010 Matthias Isler
-   * Licensed under the GPL licenses:
-   * http://www.gnu.org/licenses/gpl.html
-   * 
-   */
   jQuery.fn.center = function(init) {
-  
+
   	var object = this;
-  
+
   	if(!init) {
-  
+
   		object.css('margin-top', jQuery(window).height() / 2 - this.height() / 2);
   		object.css('margin-left', jQuery(window).width() / 2 - this.width() / 2);
-  
+
   		jQuery(window).resize(function() {
   			object.center(!init);
   		});
-  
+
   	} else {
-  
+
   		var marginTop = jQuery(window).height() / 2 - this.height() / 2;
   		var marginLeft = jQuery(window).width() / 2 - this.width() / 2;
-  
+
   		marginTop = (marginTop < 0) ? 0 : marginTop;
   		marginLeft = (marginLeft < 0) ? 0 : marginLeft;
-  
+
   		object.stop();
   		object.animate(
   			{
-  				marginTop: marginTop, 
+  				marginTop: marginTop,
   				marginLeft: marginLeft
-  			}, 
-  			150, 
+  			},
+  			150,
   			'linear'
   		);
-  
+
   	}
   }
   </script>
   <script type="text/javascript">
     (function($) {
-    
-    $(document).ready(function() {
-      $('#page').center();
-    });
-    
+      $(document).ready(function() {
+        $('#page').center();
+      });
     })(jQuery);
   </script>
   <style>
@@ -84,39 +73,39 @@
     font-size: 20px;
     text-align: center;
   }
-  
+
   #page {
     width: 100%;
   }
-  
+
   #page {
     max-width: 350px;
   }
-  
-  
+
+
   #sidebar-second {
     color: #fff;
     margin-top: 25px;
     max-width: 350px;
   }
-  
+
   #sidebar-second #site-name {
     padding-right: 20px;
     font-size: 16px;
     text-align: right;
     text-transform: uppercase;
   }
-  
+
   #sidebar-second #site-name a {
     color: #fff;
     text-decoration: none;
   }
-  
+
   #content {
     max-width: 350px;
   	background: rgb(227,227,227);
   	color: rgb(60,60,37);
-    background: -webkit-gradient(linear, left top, left bottom, 
+    background: -webkit-gradient(linear, left top, left bottom,
       color-stop(0.0, rgb(255,255,132)),
       color-stop(0.5, rgb(255,255,132)),
       color-stop(1.0, rgb(255,255,158))
@@ -134,13 +123,13 @@
     -moz-transform: rotate(-2deg);
     transform: rotate(-2deg);
   }
-  
+
   #content h1.title {
     font-weight: bold;
     margin: 15px 0 20px 0;
     font-size: 35px;
   }
-  
+
   #content #content-inner {
     padding: 20px;
   }

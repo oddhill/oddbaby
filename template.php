@@ -1,7 +1,11 @@
 <?php
 /**
  * @file
- * TODO: Comment this file.
+ * Main PHP file for this theme.
+ *
+ * This will contain any hooks and custom functions that are being used for this
+ * theme. It's also responsible for loading the preprocess.inc and theme.inc
+ * files.
  */
 
 /**

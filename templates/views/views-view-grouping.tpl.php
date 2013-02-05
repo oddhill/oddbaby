@@ -1,20 +1,16 @@
 <?php
-
 /**
  * @file
  * This template is used to print a single grouping in a view.
  *
- * It is not actually used in default Views, as this is registered as a theme
- * function which has better performance. For single overrides, the template is
- * perfectly okay.
+ * If you'd like to override this template, you should create a folder within
+ * this folder and name it to the machine-readable name of the view that you're
+ * overriding. Then have a look at the theme information for that view, and
+ * you'll be able to see which naming convention you should use for the new
+ * file.
  *
- * Variables available:
- * - $view: The view object
- * - $grouping: The grouping instruction.
- * - $grouping_level: Integer indicating the hierarchical level of the grouping.
- * - $rows: The rows contained in this grouping.
- * - $title: The title of this grouping.
- * - $content: The processed content output that will normally be used.
+ * You might end up with something like
+ * view_name/views-view-grouping--view-name.tpl.php.
  */
 ?>
 <div class="group">

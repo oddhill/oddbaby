@@ -1,22 +1,16 @@
 <?php
-
 /**
  * @file
  * This template handles the layout of the views exposed filter form.
  *
- * Variables available:
- * - $widgets: An array of exposed form widgets. Each widget contains:
- * - $widget->label: The visible label to print. May be optional.
- * - $widget->operator: The operator for the widget. May be optional.
- * - $widget->widget: The widget itself.
- * - $sort_by: The select box to sort the view using an exposed form.
- * - $sort_order: The select box with the ASC, DESC options to define order. May be optional.
- * - $items_per_page: The select box with the available items per page. May be optional.
- * - $offset: A textfield to define the offset of the view. May be optional.
- * - $reset_button: A button to reset the exposed filter applied. May be optional.
- * - $button: The submit button for the form.
+ * If you'd like to override this template, you should create a folder within
+ * this folder and name it to the machine-readable name of the view that you're
+ * overriding. Then have a look at the theme information for that view, and
+ * you'll be able to see which naming convention you should use for the new
+ * file.
  *
- * @ingroup views_templates
+ * You might end up with something like
+ * view_name/views-exposed-form--view-name.tpl.php.
  */
 ?>
 <?php if (!empty($q)): ?>

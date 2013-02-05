@@ -1,7 +1,16 @@
 <?php
 /**
  * @file
- * TODO: Comment this file.
+ * This file contains the theme function overrides and any custom theme
+ * functions that are being used.
+ *
+ * These functions are the last function that are being executed and are
+ * responsible for delivering the actual HTML. They work just like template
+ * files, but they are functions rather than actual files.
+ *
+ * If you want to add an override, you should find the original theme function,
+ * usually from the API site, but it can also be found in the corresponding
+ * modules implementation of hook_theme().
  */
 
 /**

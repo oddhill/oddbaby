@@ -1,21 +1,16 @@
 <?php
-
 /**
  * @file
  * Template to display a view as a table.
  *
- * - $title : The title of this group of rows.  May be empty.
- * - $header: An array of header labels keyed by field id.
- * - $header_classes: An array of header classes keyed by field id.
- * - $fields: An array of CSS IDs to use for each field id.
- * - $classes: A class or classes to apply to the table, based on settings.
- * - $row_classes: An array of classes to apply to each row, indexed by row
- *   number. This matches the index in $rows.
- * - $rows: An array of row items. Each row is an array of content.
- *   $rows are keyed by row number, fields within rows are keyed by field ID.
- * - $field_classes: An array of classes to apply to each field, indexed by
- *   field id, then row number. This matches the index in $rows.
- * @ingroup views_templates
+ * If you'd like to override this template, you should create a folder within
+ * this folder and name it to the machine-readable name of the view that you're
+ * overriding. Then have a look at the theme information for that view, and
+ * you'll be able to see which naming convention you should use for the new
+ * file.
+ *
+ * You might end up with something like
+ * view_name/views-view-table--view-name.tpl.php.
  */
 ?>
 <table <?php print $attributes; ?>>
