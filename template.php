@@ -9,6 +9,21 @@
  */
 
 /**
+ * Implements hook_html_head_alter().
+ */
+function origin_html_head_alter(&$head_elements) {
+  // Add a tag that disables the compatibility mode in IE.
+  $head_elements['disable_compatibility_mode'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => array(
+      'http-equiv' => 'X-UA-Compatible',
+      'content' => 'IE=Edge',
+    ),
+  );
+}
+
+/**
  * Implements hook_css_alter().
  */
 function origin_css_alter(&$css) {
