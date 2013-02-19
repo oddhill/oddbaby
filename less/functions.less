@@ -78,3 +78,23 @@
   width: @width * 1px;
   height: @height * 1px;
 }
+
+// Clearfix - use on anything you want overflow hidden
+.group {
+
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+/* IE6 */
+* html .group {
+  height: 1%;
+}
+/* IE7 */
+*:first-child + html .group {
+  min-height: 1%;
+}
