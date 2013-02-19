@@ -12,12 +12,14 @@
  * You might end up with something like view_name/views-view--view-name.tpl.php.
  */
 ?>
-<?php print $header; ?>
-<?php print $exposed; ?>
-<?php print $attachment_before; ?>
-<?php print $rows; ?>
-<?php print $empty; ?>
-<?php print $pager; ?>
-<?php print $attachment_after; ?>
-<?php print $more; ?>
-<?php print $footer; ?>
+<div class="<?php print $classes; ?>">
+  <?php print $header; ?>
+  <?php print $exposed; ?>
+  <?php print $attachment_before; ?>
+  <?php print $rows; ?>
+  <?php print $empty; ?>
+  <?php print $pager; ?>
+  <?php print $attachment_after; ?>
+  <?php print $more; ?>
+  <?php print $footer; ?>
+</div>
