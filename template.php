@@ -38,6 +38,9 @@ function origin_css_alter(&$css) {
     'profiles/odddrupal/modules/contrib/admin_menu/admin_menu.uid1.css',
     'profiles/odddrupal/modules/contrib/admin_menu/admin_menu_toolbar/admin_menu_toolbar.css',
     'modules/shortcut/shortcut.css',
+    'profiles/odddrupal/modules/contrib/devel_themer/devel_themer.css',
+    'profiles/odddrupal/modules/contrib/devel_themer/devel_themer_ie_fix.css',
+    'profiles/odddrupal/modules/contrib/devel/krumo/skins/default/skin.css',
   );
 
   // Get the path to this theme. We'd like to keep every CSS file that's been
