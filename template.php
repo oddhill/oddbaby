@@ -30,17 +30,20 @@ function origin_css_alter(&$css) {
   // Specify the CSS files that we want to include.
   $include = array(
     'modules/system/system.base.css',
-    'profiles/odddrupal/modules/custom/fanta/fanta.css',
+    'modules/overlay/overlay-parent.css',
+    'modules/toolbar/toolbar.css',
+    'modules/contextual/contextual.css',
+    'modules/shortcut/shortcut.css',
     'profiles/odddrupal/modules/contrib/date/date_popup/themes/datepicker.1.7.css',
     'profiles/odddrupal/modules/contrib/extlink/extlink.css',
-    'modules/contextual/contextual.css',
     'profiles/odddrupal/modules/contrib/admin_menu/admin_menu.css',
     'profiles/odddrupal/modules/contrib/admin_menu/admin_menu.uid1.css',
     'profiles/odddrupal/modules/contrib/admin_menu/admin_menu_toolbar/admin_menu_toolbar.css',
-    'modules/shortcut/shortcut.css',
     'profiles/odddrupal/modules/contrib/devel_themer/devel_themer.css',
     'profiles/odddrupal/modules/contrib/devel_themer/devel_themer_ie_fix.css',
-    'profiles/odddrupal/modules/contrib/devel/krumo/skins/default/skin.css',
+    'profiles/odddrupal/modules/contrib/devel/krumo/skins/default/skin.css',   
+    'profiles/odddrupal/modules/contrib/context/plugins/context_reaction_block.css',
+    'profiles/odddrupal/modules/custom/fanta/fanta.css',
   );
 
   // Get the path to this theme. We'd like to keep every CSS file that's been
