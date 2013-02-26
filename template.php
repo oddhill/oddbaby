@@ -27,35 +27,31 @@ function origin_html_head_alter(&$head_elements) {
  * Implements hook_css_alter().
  */
 function origin_css_alter(&$css) {
-  // Specify the CSS files that we want to include.
-  $include = array(
-    'modules/system/system.base.css',
-    'modules/overlay/overlay-parent.css',
-    'modules/toolbar/toolbar.css',
-    'modules/contextual/contextual.css',
-    'modules/shortcut/shortcut.css',
-    'profiles/odddrupal/modules/contrib/date/date_popup/themes/datepicker.1.7.css',
-    'profiles/odddrupal/modules/contrib/extlink/extlink.css',
-    'profiles/odddrupal/modules/contrib/admin_menu/admin_menu.css',
-    'profiles/odddrupal/modules/contrib/admin_menu/admin_menu.uid1.css',
-    'profiles/odddrupal/modules/contrib/admin_menu/admin_menu_toolbar/admin_menu_toolbar.css',
-    'profiles/odddrupal/modules/contrib/devel_themer/devel_themer.css',
-    'profiles/odddrupal/modules/contrib/devel_themer/devel_themer_ie_fix.css',
-    'profiles/odddrupal/modules/contrib/devel/krumo/skins/default/skin.css',   
+  // Specify the CSS files that we want to exclude.
+  $exclude = array(
+    'misc/ui/jquery.ui.core.css',
+    'misc/ui/jquery.ui.theme.css',
+    'misc/ui/jquery.ui.resizable.css',
+    'misc/ui/jquery.ui.button.css',
+    'misc/ui/jquery.ui.dialog.css',
+    'modules/system/system.menus.css',
+    'modules/system/system.messages.css',
+    'modules/system/system.theme.css',
+    'modules/node/node.css',
+    'modules/user/user.css',
+    'modules/field/theme/field.css',
+    'profiles/odddrupal/modules/contrib/ctools/css/ctools.css',
+    'profiles/odddrupal/modules/contrib/date/date_api/date.css',
+    'profiles/odddrupal/modules/contrib/logintoboggan/logintoboggan.css',
+    'profiles/odddrupal/modules/contrib/views/css/views.css',
+    'profiles/odddrupal/modules/contrib/boxes/boxes.css',
     'profiles/odddrupal/modules/contrib/context/plugins/context_reaction_block.css',
-    'profiles/odddrupal/modules/custom/fanta/fanta.css',
   );
 
-  // Get the path to this theme. We'd like to keep every CSS file that's been
-  // added to the theme.
-  $origin_path = drupal_get_path('theme', 'origin');
-
-  // Iterate through the loaded CSS file, and remove the ones that hasn't been
-  // specified in the array above, or isn't located in the path for this theme.
-  foreach ($css as $key => $data) {
-    if (!in_array($key, $include) && strpos($key, $origin_path) !== 0) {
-      unset($css[$key]);
-    }
+  // Iterate through each excluded CSS file, and remove it from the loaded
+  // files.
+  foreach ($exclude as $file) {
+    unset($css[$file]);
   }
 }
 
