@@ -265,3 +265,11 @@ function origin_container($variables) {
 
   return $element['#children'];
 }
+
+/**
+ * Overrides theme_boxes_box().
+ */
+function origin_boxes_box($variables) {
+  $block = $variables['block'];
+  return $block['content'];
+}
