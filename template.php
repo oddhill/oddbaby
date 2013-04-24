@@ -45,7 +45,6 @@ function origin_css_alter(&$css) {
     'profiles/odddrupal/modules/contrib/logintoboggan/logintoboggan.css',
     'profiles/odddrupal/modules/contrib/views/css/views.css',
     'profiles/odddrupal/modules/contrib/boxes/boxes.css',
-    'profiles/odddrupal/modules/contrib/context/plugins/context_reaction_block.css',
   );
 
   // Iterate through each excluded CSS file, and remove it from the loaded
