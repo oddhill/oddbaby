@@ -8,7 +8,7 @@ images_dir = "graphics"
 javascripts_dir = "js"
 fonts_dir = "fonts"
 
-output_style = :nested
+output_style = :expanded
 
 relative_assets = true
 
