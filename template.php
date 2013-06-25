@@ -72,7 +72,7 @@ function origin_js_alter(&$js) {
   }
 
   // Replace the loaded jQuery update version with a version of our choice.
-  origin_jquery_update_replace(&$js, '1.7');
+  origin_jquery_update_replace($js, '1.7');
 }
 
 /**
@@ -98,11 +98,11 @@ function origin_jquery_update_replace(&$js, $version) {
 
   // Load the data for the current jQuery version.
   $current = array();
-  jquery_update_jquery_replace(&$current, $cdn, $path, $min, variable_get('jquery_update_jquery_version', '1.5'));
+  jquery_update_jquery_replace($current, $cdn, $path, $min, variable_get('jquery_update_jquery_version', '1.5'));
 
   // Load the data for the jQuery version of our choice.
   $new = array();
-  jquery_update_jquery_replace(&$new, $cdn, $path, $min, $version);
+  jquery_update_jquery_replace($new, $cdn, $path, $min, $version);
 
   // Replace the loaded jQuery JS with the information that's based on the
   // version that we just loaded.
