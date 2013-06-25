@@ -71,12 +71,51 @@ function origin_js_alter(&$js) {
     unset($js[$file]);
   }
 
-  // Replace the jQuery version that's provided bu jQuery update with a version
-  // of our choise.
-  $js['https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'] = $js['https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js'];
-  $js['https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js']['data'] = 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js';
-  $js['https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js']['version'] = '1.7.2';
-  unset($js['https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js']);
+  // Replace the loaded jQuery update version with a version of our choice.
+  origin_jquery_update_replace(&$js, '1.7');
+}
+
+/**
+ * Replace the configured jQuery update version.
+ *
+ * This will load the jQuery information based on the library and the
+ * configuration for jQuery update. It will then replace that information with
+ * information based on the version that's specified.
+ *
+ * @param array $js
+ *   An array with JS information that's available from hook_js_alter().
+ * @param string $version
+ *   The version that we'd like to use instead, e.g. '1.7'.
+ *
+ * @see jquery_update_library_alter()
+ * @see jquery_update_jquery_replace()
+ */
+function origin_jquery_update_replace(&$js, $version) {
+  // Get the configuration for jQuery update.
+  $path = drupal_get_path('module', 'jquery_update');
+  $min = variable_get('jquery_update_compression_type', 'min') == 'none' ? '' : '.min';
+  $cdn = variable_get('jquery_update_jquery_cdn', 'none');
+
+  // Load the data for the current jQuery version.
+  $current = array();
+  jquery_update_jquery_replace(&$current, $cdn, $path, $min, variable_get('jquery_update_jquery_version', '1.5'));
+
+  // Load the data for the jQuery version of our choice.
+  $new = array();
+  jquery_update_jquery_replace(&$new, $cdn, $path, $min, $version);
+
+  // Replace the loaded jQuery JS with the information that's based on the
+  // version that we just loaded.
+  $js[$new['jquery']['js']['misc/jquery.js']['data']] = $js[$current['jquery']['js']['misc/jquery.js']['data']];
+  $js[$new['jquery']['js']['misc/jquery.js']['data']]['data'] = $new['jquery']['js']['misc/jquery.js']['data'];
+  $js[$new['jquery']['js']['misc/jquery.js']['data']]['version'] = $new['jquery']['js']['version'];
+  unset($js[$current['jquery']['js']['misc/jquery.js']['data']]);
+
+  foreach ($js as $key => &$info) {
+    if ($info['data'] == $current['jquery']['js'][0]['data']) {
+      $info['data'] = $new['jquery']['js'][0]['data'];
+    }
+  }
 }
 
 // Include the preprocess and theme files. These includes preprocess
