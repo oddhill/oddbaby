@@ -11,7 +11,7 @@
 /**
  * Implements hook_html_head_alter().
  */
-function origin_html_head_alter(&$head_elements) {
+function oddbaby_html_head_alter(&$head_elements) {
   // Add a tag that disables the compatibility mode in IE.
   $head_elements['disable_compatibility_mode'] = array(
     '#type' => 'html_tag',
@@ -26,7 +26,7 @@ function origin_html_head_alter(&$head_elements) {
 /**
  * Implements hook_css_alter().
  */
-function origin_css_alter(&$css) {
+function oddbaby_css_alter(&$css) {
   // Specify the CSS files that we want to exclude.
   $exclude = array(
     'misc/ui/jquery.ui.core.css',
@@ -57,7 +57,7 @@ function origin_css_alter(&$css) {
 /**
  * Implements hook_css_alter().
  */
-function origin_js_alter(&$js) {
+function oddbaby_js_alter(&$js) {
   // Specify the javascript files that we want to exclude.
   $exclude = array(
     'profiles/odddrupal/modules/contrib/views/js/jquery.ui.dialog.patch.js',
@@ -72,7 +72,7 @@ function origin_js_alter(&$js) {
   }
 
   // Replace the loaded jQuery update version with a version of our choice.
-  origin_jquery_update_replace($js, '1.7');
+  oddbaby_jquery_update_replace($js, '1.7');
 }
 
 /**
@@ -90,7 +90,7 @@ function origin_js_alter(&$js) {
  * @see jquery_update_library_alter()
  * @see jquery_update_jquery_replace()
  */
-function origin_jquery_update_replace(&$js, $version) {
+function oddbaby_jquery_update_replace(&$js, $version) {
   // Get the configuration for jQuery update.
   $path = drupal_get_path('module', 'jquery_update');
   $min = variable_get('jquery_update_compression_type', 'min') == 'none' ? '' : '.min';

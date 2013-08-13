@@ -16,7 +16,7 @@
 /**
  * Overrides theme_blockify_logo().
  */
-function origin_blockify_logo($variables) {
+function oddbaby_blockify_logo($variables) {
   $site_name = filter_xss_admin(variable_get('site_name', 'Drupal'));
   $page_title = drupal_get_title();
 
@@ -54,7 +54,7 @@ function origin_blockify_logo($variables) {
 /**
  * Overrides theme_menu_local_tasks().
  */
-function origin_menu_local_tasks($variables) {
+function oddbaby_menu_local_tasks($variables) {
   // Add Contextual links library, if it hasn't been added already.
   drupal_add_library('contextual', 'contextual-links');
 
@@ -76,7 +76,7 @@ function origin_menu_local_tasks($variables) {
 /**
  * Overrides theme_form_element().
  */
-function origin_form_element($variables) {
+function oddbaby_form_element($variables) {
   $element = &$variables['element'];
   // This is also used in the installer, pre-database setup.
   $t = get_t();
@@ -153,7 +153,7 @@ function origin_form_element($variables) {
 /**
  * Overrides theme_form_element_label().
  */
-function origin_form_element_label($variables) {
+function oddbaby_form_element_label($variables) {
   $element = $variables['element'];
   // This is also used in the installer, pre-database setup.
   $t = get_t();
@@ -205,7 +205,7 @@ function origin_form_element_label($variables) {
 /**
  * Overrides theme_fieldset().
  */
-function origin_fieldset($variables) {
+function oddbaby_fieldset($variables) {
   $element = $variables['element'];
   element_set_attributes($element, array('id'));
   _form_set_class($element, array('form-wrapper'));
@@ -229,7 +229,7 @@ function origin_fieldset($variables) {
 /**
  * Overrides theme_textarea().
  */
-function origin_textarea($variables) {
+function oddbaby_textarea($variables) {
   $element = $variables['element'];
   element_set_attributes($element, array('id', 'name', 'cols', 'rows'));
   _form_set_class($element, array('form-textarea'));
@@ -250,7 +250,7 @@ function origin_textarea($variables) {
 /**
  * Overrides theme_container().
  */
-function origin_container($variables) {
+function oddbaby_container($variables) {
   $element = $variables['element'];
 
   // Special handling for form elements.
@@ -269,7 +269,7 @@ function origin_container($variables) {
 /**
  * Overrides theme_boxes_box().
  */
-function origin_boxes_box($variables) {
+function oddbaby_boxes_box($variables) {
   $block = $variables['block'];
   return $block['content'];
 }

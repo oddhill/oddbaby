@@ -18,7 +18,7 @@
 /**
  * Implements template_preprocess_block().
  */
-function origin_preprocess_block(&$variables) {
+function oddbaby_preprocess_block(&$variables) {
   // Alter the title for some blocks. This is manually configured here, because
   // Features doesn't export block configuration.
   switch ($variables['block']->bid) {
@@ -31,7 +31,7 @@ function origin_preprocess_block(&$variables) {
 /**
  * Implements template_preprocess_blockify_logo().
  */
-function origin_preprocess_blockify_logo(&$variables) {
+function oddbaby_preprocess_blockify_logo(&$variables) {
   // Change the url of the logo to the graphics folder.
-  $variables['logo_path'] = file_create_url(drupal_get_path('theme', 'origin') . '/graphics/logo.png');
+  $variables['logo_path'] = file_create_url(drupal_get_path('theme', 'oddbaby') . '/graphics/logo.png');
 }

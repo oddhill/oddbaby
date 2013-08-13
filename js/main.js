@@ -1,9 +1,9 @@
 (function($) {
 
 // Run whenever the DOM tree is changed, e.g. through AJAX/AHAH
-Drupal.behaviors.ORIGIN = {
+Drupal.behaviors.ODDBABY = {
   attach: function (context, settings) {
-  
+
   }
 }
 
