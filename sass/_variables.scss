@@ -8,14 +8,5 @@
 // $visual-grid : true;
 // $visual-grid-color: #e0eef7;
 
-$font-size: 14px;
-$line-height: $font-size * 1.5;
-
-$headerOne: 28px;
-$headerTwo: 21px;
-$headerThree: 18px;
-$headerFour: 16px;
-
-$fontSizeOne: 18px;
-$fontSizeTwo: 16px;
-$fontSizeThree: 14px;
+$base-font-size: 14px;
+$line-height: $base-font-size * 1.5;
