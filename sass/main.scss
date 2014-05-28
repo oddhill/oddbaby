@@ -1,53 +1,46 @@
-@import "bourbon";
+// Import Bourbon mixin lib
+@import "../assets/bourbon/dist/bourbon";
 
-@import "reset", "variables", "mixins";
+// Import our normalize, variables, mixins & helpers
+@import "variables", "mixins", "helpers";
 
-// Import grid asset
-//@import '../assets/neat/_neat';
+// Neat should be imported after variable, reset and mixin declaration.
+// Otherwise neat overrides our variables.
+@import "../assets/neat/app/assets/stylesheets/neat";
 
-body,
-caption,
-th,
-td,
+// General resets
+// Remove subpixels from webkit browsers and FF
+// Remove tap highlight color for webkit smartphones.
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+// Set HTML to 62.5% to make it easier setting REM/EM values
+// Now it calculates from 10 instead of regular 16.
+// Example 1rem = 10px
+html {
+  font-size: 62.5%;
+  min-height: 100%;
+}
+
+// Remove subpixels from webkit browsers and FF
+// Remove webkit standard input, form, select & button styling on smartdevices
 input,
-textarea,
+form,
 select,
-option,
-legend,
-fieldset {
-  font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
-  font-size: $base-font-size;
-  line-height: $line-height;
+button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-appearance: none;
+  border-radius: 0px;
+  border: 0px;
+  outline: none;
 }
 
-pre,
-code,
-kbd,
-samp,
-tt,
-var {
-  font-family: "Courier New", "DejaVu Sans Mono", monospace;
-}
-
-h1 {
-  font-size: $base-font-size * 2;
-  line-height: $base-font-size * 3;
-}
-
-h2 {
-  font-size: $base-font-size * 1.5;
-}
-
-h3 {
-  font-size: $base-font-size * 1.3;
-}
-
-h4,
-h5,
-h6 {
-  font-size: $base-font-size;
-}
-
-pre {
-  font-size: $base-font-size: + 1; // Monospace skrivs ut något mindre
+// Remove standard border on button & input on smart devices
+button,
+input[type=submit] {
+  border: 0px;
 }

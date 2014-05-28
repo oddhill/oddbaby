@@ -33,5 +33,5 @@ function oddbaby_preprocess_block(&$variables) {
  */
 function oddbaby_preprocess_blockify_logo(&$variables) {
   // Change the url of the logo to the graphics folder.
-  $variables['logo_path'] = file_create_url(drupal_get_path('theme', 'oddbaby') . '/graphics/logo.png');
+  $variables['logo_path'] = file_create_url(drupal_get_path('theme', 'oddbaby') . '/graphics/logo.svg');
 }

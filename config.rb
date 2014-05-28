@@ -1,5 +1,3 @@
-# Require any additional compass plugins here.
-
 # Set this to the root of your project when deployed:
 http_path = "/"
 css_dir = "css"
@@ -8,7 +6,7 @@ images_dir = "graphics"
 javascripts_dir = "js"
 fonts_dir = "fonts"
 
-output_style = :expanded
+output_style = :compact
 
 relative_assets = true
 
