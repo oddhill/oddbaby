@@ -10,7 +10,7 @@
 
 // General resets
 // Remove subpixels from webkit browsers and FF
-// Remove tap highlight color for webkit smartphones.
+// Remove tap highlight color for webkit touch browsers.
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
