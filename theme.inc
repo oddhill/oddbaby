@@ -215,6 +215,7 @@ function oddbaby_fieldset($variables) {
     // Always wrap fieldset legends in a SPAN for CSS positioning.
     $output .= '<legend><span class="fieldset-legend">' . $element['#title'] . '</span></legend>';
   }
+  $output .= '<div class="fieldset-wrapper">';
   if (!empty($element['#description'])) {
     $output .= '<div class="fieldset-description">' . $element['#description'] . '</div>';
   }
@@ -222,6 +223,7 @@ function oddbaby_fieldset($variables) {
   if (isset($element['#value'])) {
     $output .= $element['#value'];
   }
+  $output .= '</div>';
   $output .= "</fieldset>\n";
   return $output;
 }
