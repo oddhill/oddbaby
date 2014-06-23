@@ -1,5 +1,6 @@
-// Import neat helpers - this gives us visual grid which can be useful.
-// @import "../assets/neat/app/assets/stylesheets/neat-helpers";
+// Import neat helpers - this gives us visual grid which can be useful, also
+// gives us media mixin which is useful when making responsive layouts.
+@import "../assets/neat/app/assets/stylesheets/neat-helpers";
 
 // Our grid variables
 $grid-columns: 12;
