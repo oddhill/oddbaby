@@ -8,7 +8,7 @@ A starter theme for Drupal theming.
 * Grunt CLI
 * Bourbon(included)
 * Neat(included)
-* modernizr(included)- Support for csstransform 2D & 3D, svg touch & includes SHIV.
+* modernizr(included) - Support for csstransform 2D & 3D, svg touch & includes SHIV.
 * selectivizr(included)
 
 ## License
