@@ -19,6 +19,13 @@ module.exports = function(grunt) {
 
       all: ['js/**/*.js']
     },
+    svg2png: {
+      all: {
+        files: [
+          { cwd: 'graphics/', src: ['**/*.svg'], dest: 'graphics/' }
+        ]
+      }
+    },
     watch: {
       js: {
         files: ['js/**/*.js'],
@@ -39,6 +46,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-svg2png');
   grunt.loadNpmTasks('grunt-contrib-watch');
-
 };
