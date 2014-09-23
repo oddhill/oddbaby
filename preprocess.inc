@@ -16,6 +16,17 @@
  */
 
 /**
+ * Implements template_preprocess().
+ */
+function oddbaby_preprocess(&$variables, $hook) {
+  // Add contextual links to everything. If contaxtual links already have been
+  // added in the normal manner, we'll use them. If they haven't, we'll add the
+  // tabs for the current page, as these will be rendered as contextual links
+  // thanks to oddbaby_menu_local_tasks().
+  $variables['contextual_links'] = isset($variables['title_suffix']['contextual_links']) ? $variables['title_suffix']['contextual_links'] : menu_local_tabs();
+}
+
+/**
  * Implements template_preprocess_block().
  */
 function oddbaby_preprocess_block(&$variables) {
