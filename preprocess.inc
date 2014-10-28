@@ -46,3 +46,20 @@ function oddbaby_preprocess_blockify_logo(&$variables) {
   // Change the url of the logo to the graphics folder.
   $variables['logo_path'] = file_create_url(drupal_get_path('theme', 'oddbaby') . '/graphics/logo.svg');
 }
+
+/**
+ * Implements template_preprocess_field().
+ */
+function oddbaby_preprocess_field(&$variables) {
+  // Add the view mode to each template suggestion.
+  foreach ($variables['theme_hook_suggestions'] as $suggestion) {
+    // Add the original suggestion.
+    $suggestions[] = $suggestion;
+
+    // Add the view mode on top of the original suggestion.
+    $suggestions[] = "{$suggestion}__{$variables['element']['#view_mode']}";
+  }
+
+  // Replace the original template suggestions with the new ones.
+  $variables['theme_hook_suggestions'] = $suggestions;
+}
