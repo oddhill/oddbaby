@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# coding: utf-8
 $:.push File.expand_path('../lib', __FILE__)
 require 'neat/version'
 
@@ -6,13 +6,14 @@ Gem::Specification.new do |s|
   s.name        = 'neat'
   s.version     = Neat::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ['Kyle Fiedler', 'Reda Lemeden', 'Joel Oliveira']
-  s.email       = ['support@thoughtbot.com']
-  s.homepage    = 'https://github.com/thoughtbot/neat'
-  s.summary     = 'A fluid grid framework on top of Bourbon'
+  s.authors     = ['Joel Oliveira', 'Kyle Fiedler', 'Reda Lemeden']
+  s.email       = 'design+bourbon@thoughtbot.com'
+  s.homepage    = 'http://neat.bourbon.io'
+  s.summary     = 'A lightweight, semantic grid framework built with Bourbon'
   s.license     = 'MIT'
   s.description = <<-DESC
-Neat is an open source grid framework built on top of Bourbon with the aim of being easy enough to use out of the box and flexible enough to customize down the road.
+Neat is a fluid grid framework built with Bourbon with the aim of being easy
+enough to use out of the box and flexible enough to customize down the road.
   DESC
 
   s.rubyforge_project = 'neat'
@@ -23,7 +24,7 @@ Neat is an open source grid framework built on top of Bourbon with the aim of be
   s.require_paths = ['lib']
 
   s.add_dependency('sass', '>= 3.3')
-  s.add_dependency('bourbon', '>= 3.1')
+  s.add_dependency('bourbon', '>= 4.0')
 
   s.add_development_dependency('aruba', '~> 0.5.0')
   s.add_development_dependency('rake')
@@ -32,4 +33,5 @@ Neat is an open source grid framework built on top of Bourbon with the aim of be
   s.add_development_dependency('rdoc')
   s.add_development_dependency('bundler')
   s.add_development_dependency('rb-fsevent', '~> 0.9.1')
+  s.add_development_dependency('scss-lint', '~> 0.29.0')
 end

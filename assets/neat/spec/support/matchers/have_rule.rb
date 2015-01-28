@@ -4,7 +4,7 @@ RSpec::Matchers.define :have_rule do |expected|
     @rules.include? expected
   end
 
-  failure_message_for_should do |actual|
+  failure_message do |actual|
     if @rules.empty?
       %{no CSS rules for selector #{actual} were found}
     else
@@ -24,7 +24,7 @@ RSpec::Matchers.define :have_rule do |expected|
   def rules(rulesets)
     rules = []
     rulesets.map do |ruleset|
-      ruleset.split(';').each do |rule|
+      ruleset.split(";").each do |rule|
         rules << rule.strip
       end
     end

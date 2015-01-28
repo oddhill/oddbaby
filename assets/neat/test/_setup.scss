@@ -1,4 +1,3 @@
-$border-box-sizing: false;
-
 @import 'bourbon/bourbon';
-@import 'app/assets/stylesheets/neat';
+@import '../app/assets/stylesheets/neat';
+$disable-warnings: true !global;
