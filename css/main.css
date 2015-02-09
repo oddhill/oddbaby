@@ -1,7 +1,8 @@
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
+html {
   box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
 
 * {
   -webkit-font-smoothing: antialiased;
