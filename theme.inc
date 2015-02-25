@@ -265,7 +265,7 @@ function oddbaby_container($variables) {
     $element['#attributes']['class'][] = 'form-wrapper';
   }
 
-  return $element['#children'];
+  return '<div' . drupal_attributes($element['#attributes']) . '>' . $element['#children'] . '</div>';
 }
 
 /**
