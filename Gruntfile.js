@@ -29,6 +29,17 @@ module.exports = function(grunt) {
         ]
       }
     },
+    scsslint: {
+      allFiles: ['sass/**/*.scss'],
+      options: {
+        bundleExec: false,
+        colorizeOutput: true,
+        config: '.scss-lint.yml',
+        reporterOutput: null,
+        maxBuffer: 3000 * 1024,
+        exclude: ['sass/print.scss', 'sass/normalize.scss']
+      }
+    },
     watch: {
       js: {
         files: ['js/**/*.js'],
@@ -51,4 +62,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-svg2png');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-scss-lint');
 };

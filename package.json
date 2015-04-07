@@ -7,6 +7,7 @@
     "grunt-contrib-sass": "latest",
     "grunt-contrib-watch": "latest",
     "jshint-stylish": "latest",
-    "grunt-svg2png": "latest"
+    "grunt-svg2png": "latest",
+    "grunt-scss-lint": "latest"
   }
 }
