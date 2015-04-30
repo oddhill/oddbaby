@@ -34,12 +34,8 @@ input,
 form,
 select,
 button {
-  -webkit-appearance: none;
-  border: 0;
-  border-radius: 0;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  outline: none;
 }
 
 // Remove standard border on button & input on smart devices
