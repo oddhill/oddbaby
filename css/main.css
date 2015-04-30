@@ -5,8 +5,8 @@ html {
   box-sizing: inherit; }
 
 * {
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent; }
 
 html {
@@ -17,13 +17,9 @@ input,
 form,
 select,
 button {
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-appearance: none;
-  border-radius: 0px;
-  border: 0px;
-  outline: none; }
+  -webkit-font-smoothing: antialiased; }
 
 button,
-input[type=submit] {
-  border: 0px; }
+[type=submit] {
+  border: 0; }
