@@ -9,9 +9,9 @@ module.exports = function(grunt) {
       },
       style: {
         files: {
-          "css/main.css": "sass/main.scss",
-          "css/print.css": "sass/print.scss",
-          "css/normalize.css": "sass/normalize.scss"
+          "css/main.css": "scss/main.scss",
+          "css/print.css": "scss/print.scss",
+          "css/normalize.css": "scss/normalize.scss"
         }
       }
     },
@@ -30,14 +30,14 @@ module.exports = function(grunt) {
       }
     },
     scsslint: {
-      allFiles: ['sass/**/*.scss'],
+      allFiles: ['scss/**/*.scss'],
       options: {
         bundleExec: false,
         colorizeOutput: true,
         config: '.scss-lint.yml',
         reporterOutput: null,
         maxBuffer: 3000 * 1024,
-        exclude: ['sass/print.scss', 'sass/normalize.scss']
+        exclude: ['scss/print.scss', 'scss/normalize.scss']
       }
     },
     watch: {
@@ -49,8 +49,8 @@ module.exports = function(grunt) {
         }
       },
       css: {
-        files: ['sass/**/*.scss'],
-        tasks: ['sass:style'],
+        files: ['scss/**/*.scss'],
+        tasks: ['sass:style', 'scsslint'],
         options: {
           livereload: false,
         }
