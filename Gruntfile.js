@@ -6,6 +6,7 @@ module.exports = function(grunt) {
     sass: {
       options: {
         sourcemap: "none",
+        require: "sass-globbing",
       },
       style: {
         files: {
