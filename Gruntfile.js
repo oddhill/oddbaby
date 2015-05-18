@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
 
   grunt.registerTask('watch', [ 'watch' ]);
+  require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
     sass: {
@@ -58,10 +59,4 @@ module.exports = function(grunt) {
       }
     }
   });
-
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-svg2png');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-scss-lint');
 };
