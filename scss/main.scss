@@ -44,6 +44,10 @@ button,
   border: 0;
 }
 
+body {
+  @include font-size();
+}
+
 // Import general styling
 @import 'typography';
 
