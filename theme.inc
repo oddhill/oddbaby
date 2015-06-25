@@ -158,9 +158,11 @@ function oddbaby_form_element_label($variables) {
   // This is also used in the installer, pre-database setup.
   $t = get_t();
 
-  // If title and required marker are both empty, output no label.
+  // If title and required marker are both empty, output no label. Make sure to
+  // output the actual field element if this is a checkbox or radio button,
+  // since those inputs are supposed to be wrapped inside the label.
   if ((!isset($element['#title']) || $element['#title'] === '') && empty($element['#required'])) {
-    return '';
+    return in_array($element['#type'], array('checkbox', 'radio')) ? $element['#children'] : '';
   }
 
   // If the element is required, a required marker is appended to the label.
