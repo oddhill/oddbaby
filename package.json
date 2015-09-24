@@ -1,14 +1,26 @@
 {
   "name": "oddbaby",
   "version": "0.0.1",
+  "description": "A starter theme for Drupal theming.",
   "devDependencies": {
-    "grunt": "latest",
-    "grunt-contrib-jshint": "latest",
-    "grunt-contrib-sass": "latest",
-    "grunt-contrib-watch": "latest",
-    "grunt-scss-lint": "latest",
-    "grunt-svg2png": "latest",
-    "jshint-stylish": "latest",
-    "load-grunt-tasks": "^3.1.0"
-  }
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-scss-lint": "^0.3.3",
+    "gulp-svg2png": "^0.3.0",
+    "jshint-stylish": "^2.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oddhill/oddbaby.git"
+  },
+  "author": "Frank Columbo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oddhill/oddbaby/issues"
+  },
+  "homepage": "https://github.com/oddhill/oddbaby"
 }

@@ -1,29 +1,30 @@
 # Odd baby
+> A starter theme for Drupal theming.
 
-A starter theme for Drupal theming.
+## Usage
+```
+npm install
+```
 
-### Dependencies
-* Grunt (included)
+Gulp tasks:
+```
+// Watch .scss (scss-lint, sass) and .js (jshint)
+$ gulp watch
+
+// Svg2png
+$ gulp svg2png
+```
+
+## Dependencies
+* Gulp
 * Sass 3.4
 * Scss lint
 
-### Includes
+## Includes
 * Bourbon
 * Neat
 * Modernizr - Support for csstransform 2D & 3D, svg touch & includes SHIV.
 * Selectivizr
 
 ## License
-
-This plugin is released under the MIT license.
-[More Information](http://opensource.org/licenses/MIT)
-
-
-## Download
-
-Releases are available for download from
-[GitHub](http://github.com/oddhill/oddbaby).
-
-******
-
-Development is sponsored by [Odd Hill](http://oddhill.se)
+MIT © Odd Hill AB
