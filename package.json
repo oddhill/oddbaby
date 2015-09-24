@@ -1,6 +1,6 @@
 {
   "name": "oddbaby",
-  "version": "0.0.1",
+  "version": "3.0.0",
   "description": "A starter theme for Drupal theming.",
   "devDependencies": {
     "gulp": "^3.9.0",
