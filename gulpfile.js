@@ -4,6 +4,15 @@ var jshint = require('gulp-jshint')
 var stylish = require('jshint-stylish')
 var scsslint = require('gulp-scss-lint')
 var svg2png = require('gulp-svg2png')
+var babel = require('gulp-babel')
+var argv = require('minimist')(process.argv.slice(2))
+
+// babel
+gulp.task('babel', function () {
+  return gulp.src('./js/src/index.js')
+    .pipe(babel())
+    .pipe(gulp.dest('./js'))
+})
 
 // svg2png
 gulp.task('svg2png', function () {
@@ -35,7 +44,12 @@ gulp.task('jshint', function () {
 // Watch .scss and .js
 gulp.task('watch', function () {
   gulp.watch('./scss/**/*.scss', ['scss-lint', 'sass'])
-  gulp.watch('./js/**/*.js', ['jshint'])
+
+  if (argv.babel) {
+    gulp.watch('./js/src/**/*.js', ['jshint', 'babel'])
+  } else {
+    gulp.watch('./js/**/*.js', ['jshint'])
+  }
 })
 
 // Set default task

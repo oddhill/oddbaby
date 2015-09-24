@@ -4,11 +4,13 @@
   "description": "A starter theme for Drupal theming.",
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
     "gulp-jshint": "^1.11.2",
     "gulp-sass": "^2.0.4",
     "gulp-scss-lint": "^0.3.3",
     "gulp-svg2png": "^0.3.0",
-    "jshint-stylish": "^2.0.1"
+    "jshint-stylish": "^2.0.1",
+    "minimist": "^1.2.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
