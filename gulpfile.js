@@ -5,6 +5,7 @@ var stylish = require('jshint-stylish')
 var scsslint = require('gulp-scss-lint')
 var svg2png = require('gulp-svg2png')
 var babel = require('gulp-babel')
+var cssGlobbing = require('gulp-css-globbing')
 var argv = require('minimist')(process.argv.slice(2))
 
 // babel
@@ -24,6 +25,9 @@ gulp.task('svg2png', function () {
 // Compile sass
 gulp.task('sass', function () {
   return gulp.src('./scss/main.scss')
+    .pipe(cssGlobbing({
+      extensions: ['.scss']
+    }))
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./css'))
 })
