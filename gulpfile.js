@@ -9,7 +9,7 @@ var argv = require('minimist')(process.argv.slice(2))
 
 // babel
 gulp.task('babel', function () {
-  return gulp.src('./js/src/index.js')
+  return gulp.src('./js/src/main.js')
     .pipe(babel())
     .pipe(gulp.dest('./js'))
 })
