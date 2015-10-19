@@ -2,16 +2,16 @@ name = Odd Baby
 core = 7.x
 
 ; Assets.
-scripts[] = assets/selectivizr-1.0.2/selectivizr-min.js
-scripts[] = assets/modernizr/modernizr.min.js
+scripts[] = js/vendor/selectivizr-1.0.2/selectivizr-min.js
+scripts[] = js/vendor/modernizr/modernizr.min.js
 
 ; Javascripts.
-scripts[] = js/main.js
+scripts[] = dist/js/bundle.js
 
 ; Stylesheets.
-stylesheets[screen][] = css/normalize.css
-stylesheets[print][] = css/print.css
-stylesheets[screen][] = css/main.css
+stylesheets[screen][] = dist/css/normalize.css
+stylesheets[print][] = dist/css/print.css
+stylesheets[screen][] = dist/css/main.css
 
 ; Regions.
 regions[header] = Header

@@ -11,7 +11,7 @@ var source = require('vinyl-source-stream')
 var argv = require('minimist')(process.argv.slice(2))
 
 // babel
-gulp.task('babelify', function () {
+gulp.task('browserify', function () {
   var b = browserify({
     entries: './js/main.js',
     transform: [babelify]
@@ -36,12 +36,12 @@ gulp.task('sass', function () {
       extensions: ['.scss']
     }))
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./dist/css'))
 })
 
 // Lint sass
 gulp.task('scss-lint', function () {
-  return gulp.src(['./scss/**/*.scss', '!./scss/print.scss', '!scss/normalize.scss'])
+  return gulp.src(['./scss/**/*.scss', '!./scss/print.scss', '!scss/normalize.scss', '!scss/vendor/**/*'])
     .pipe(scsslint())
 })
 
@@ -55,12 +55,7 @@ gulp.task('jshint', function () {
 // Watch .scss and .js
 gulp.task('watch', function () {
   gulp.watch('./scss/**/*.scss', ['scss-lint', 'sass'])
-
-  if (argv.babel) {
-    gulp.watch('./js/**/*.js', ['jshint', 'babelify'])
-  } else {
-    gulp.watch('./js/**/*.js', ['jshint'])
-  }
+  gulp.watch('./js/**/*.js', ['jshint', 'browserify'])
 })
 
 // Set default task

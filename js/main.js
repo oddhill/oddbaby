@@ -1,22 +1,28 @@
-(function($) {
+/* Globals jQuery, Drupal */
 
-// Run whenever the DOM tree is changed, e.g. through AJAX/AHAH
-Drupal.behaviors.ODDBABY = {
-  attach: function (context, settings) {
+// Require libs
+import utils from './lib/utils';
+import throttle from './lib/throttle';
 
-  }
-};
+void function ($) {
+  // Run when DOM is ready
+  $(document).ready(function () {
+    // If SVG is not supported replace it with png version
+    utils.svgToPng()
+  });
 
-// Run once when the DOM is ready (page load)
-$(document).ready(function() {
+  // Run when DOM is changed
+  Drupal.behaviors.ODDBABY = {
+    attach: function (context, settings) {
 
-  // If SVG is not supported replace it with png version
-  if(!Modernizr.svg) { /* Check modernizr for svg support */
-    $('img[src*="svg"]').attr('src', function() {
-        return $(this).attr('src').replace('.svg', '.png'); /* Replace suffixes with .png */
-    });
-  }
+    }
+  };
 
-});
+  // Throttle window events
 
-})(jQuery);
+  // Run on window resize
+  // throttle.add('resize', myFunction);
+
+  // Run on window scroll
+  // throttle.add('scroll', myFunction);
+}(jQuery);
