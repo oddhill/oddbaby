@@ -4,15 +4,22 @@ var jshint = require('gulp-jshint')
 var stylish = require('jshint-stylish')
 var scsslint = require('gulp-scss-lint')
 var svg2png = require('gulp-svg2png')
-var babel = require('gulp-babel')
+var browserify = require('browserify')
+var babelify = require('babelify')
 var cssGlobbing = require('gulp-css-globbing')
+var source = require('vinyl-source-stream')
 var argv = require('minimist')(process.argv.slice(2))
 
 // babel
-gulp.task('babel', function () {
-  return gulp.src('./js/src/main.js')
-    .pipe(babel())
-    .pipe(gulp.dest('./js'))
+gulp.task('babelify', function () {
+  var b = browserify({
+    entries: './js/main.js',
+    transform: [babelify]
+  })
+
+  return b.bundle()
+    .pipe(source('bundle.js'))
+    .pipe(gulp.dest('./dist/js'))
 })
 
 // svg2png
@@ -50,7 +57,7 @@ gulp.task('watch', function () {
   gulp.watch('./scss/**/*.scss', ['scss-lint', 'sass'])
 
   if (argv.babel) {
-    gulp.watch('./js/src/**/*.js', ['jshint', 'babel'])
+    gulp.watch('./js/**/*.js', ['jshint', 'babelify'])
   } else {
     gulp.watch('./js/**/*.js', ['jshint'])
   }
