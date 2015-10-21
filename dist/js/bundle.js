@@ -30,11 +30,18 @@
 
   // Runs rAF
   function update(event) {
-    if (ticking || !window.requestAnimationFrame) return;
+    if (ticking) return;
     ticking = true;
-    window.requestAnimationFrame(function () {
-      run(event);
-    });
+
+    if (window.requestAnimationFrame) {
+      window.requestAnimationFrame(function () {
+        run(event);
+      });
+    } else {
+      setTimeout(function () {
+        run(event);
+      }, 66);
+    }
   }
 
   // Run our callbacks
