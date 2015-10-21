@@ -1,9 +1,6 @@
 name = Odd Baby
 core = 7.x
 
-; Assets.
-scripts[] = js/vendor/modernizr/modernizr.min.js
-
 ; Javascripts.
 scripts[] = dist/js/bundle.js
 

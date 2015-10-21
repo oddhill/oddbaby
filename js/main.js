@@ -1,6 +1,7 @@
 /* Globals jQuery, Drupal */
 
 // Require libs
+import Modernizr from './vendor/modernizr/modernizr.js';
 import utils from './lib/utils';
 import throttle from './lib/throttle';
 
