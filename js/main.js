@@ -5,6 +5,9 @@ import Modernizr from './vendor/modernizr/modernizr.js';
 import utils from './lib/utils';
 import throttle from './lib/throttle';
 
+// Require responsive behavior
+// import responsive from './responsive.js';
+
 void function ($) {
   // Run when DOM is ready
   $(document).ready(function () {

@@ -88,6 +88,9 @@ var _libThrottle = require('./lib/throttle');
 
 var _libThrottle2 = _interopRequireDefault(_libThrottle);
 
+// Require responsive behavior
+// import responsive from './responsive.js';
+
 void (function ($) {
   // Run when DOM is ready
   $(document).ready(function () {
