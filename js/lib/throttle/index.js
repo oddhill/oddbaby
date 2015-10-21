@@ -4,11 +4,11 @@
  * https://developer.mozilla.org/en-US/docs/Web/Events/resize
  */
 
-(function (global, $) {
+(function ($) {
   var ticking = false
   var callbacks = {}
 
-  function throttle () {
+  var throttle = function () {
     return {
       add: add
     }
@@ -43,5 +43,5 @@
     ticking = false
   }
 
-  global.throttle = throttle
-}(this, jQuery))
+  module.exports = throttle
+}(jQuery))

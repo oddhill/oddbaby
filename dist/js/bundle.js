@@ -7,15 +7,15 @@
 
 "use strict";
 
-(function (global, $) {
+(function ($) {
   var ticking = false;
   var callbacks = {};
 
-  function throttle() {
+  var throttle = function throttle() {
     return {
       add: add
     };
-  }
+  };
 
   // Add a callback to be fired on a certain event.
   function add(event, callback) {
@@ -46,8 +46,8 @@
     ticking = false;
   }
 
-  global.throttle = throttle;
-})(undefined, jQuery);
+  module.exports = throttle;
+})(jQuery);
 
 },{}],2:[function(require,module,exports){
 'use strict';
