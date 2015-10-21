@@ -2,7 +2,6 @@ name = Odd Baby
 core = 7.x
 
 ; Assets.
-scripts[] = js/vendor/selectivizr-1.0.2/selectivizr-min.js
 scripts[] = js/vendor/modernizr/modernizr.min.js
 
 ; Javascripts.
