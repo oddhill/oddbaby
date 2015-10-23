@@ -1,0 +1,7 @@
+{
+  "name": "oddbaby",
+  "dependencies": {
+    "bourbon": "~4.2.6",
+    "neat": "~1.7.2"
+  }
+}
