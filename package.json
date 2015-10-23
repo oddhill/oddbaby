@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/oddhill/oddbaby",
   "dependencies": {
-    "enquire.js": "^2.1.1",
-    "modernizr": "^3.1.0"
+    "browsernizr": "^2.0.0",
+    "enquire.js": "^2.1.1"
   }
 }

@@ -1,9 +1,22 @@
 /* Globals jQuery, Drupal */
 
 // Require libs
-import Modernizr from './vendor/modernizr/modernizr.js';
 import utils from './lib/utils';
 import throttle from './lib/throttle';
+
+// Import modernizr
+import 'browsernizr/test/css/transforms';
+import 'browsernizr/test/css/transforms3d';
+import 'browsernizr/test/css/transitions';
+import 'browsernizr/test/svg';
+import 'browsernizr/lib/domPrefixes';
+import 'browsernizr/lib/prefixes';
+import 'browsernizr/lib/html5shiv';
+import 'browsernizr/lib/testAllProps';
+import 'browsernizr/lib/testProp';
+import 'browsernizr/lib/testStyles';
+
+import Modernizr from 'browsernizr';
 
 // Require responsive behavior
 // import responsive from './responsive.js';
