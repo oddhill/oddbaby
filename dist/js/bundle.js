@@ -68,8 +68,6 @@ exports.svgToPng = function () {
   }
 };
 
-exports.importModernizr = function () {};
-
 },{}],3:[function(require,module,exports){
 /* Globals jQuery, Drupal */
 
