@@ -5,6 +5,7 @@ var stylish = require('jshint-stylish')
 var scsslint = require('gulp-scss-lint')
 var svg2png = require('gulp-svg2png')
 var browserify = require('browserify')
+var shim = require('browserify-shim')
 var babelify = require('babelify')
 var cssGlobbing = require('gulp-css-globbing')
 var source = require('vinyl-source-stream')
@@ -13,9 +14,12 @@ var argv = require('minimist')(process.argv.slice(2))
 // babel
 gulp.task('browserify', function () {
   var b = browserify({
-    entries: './js/main.js',
-    transform: [babelify]
+    basedir: './js',
+    entries: './main.js'
   })
+
+  b.transform(babelify)
+  b.transform(shim, {global: true})
 
   return b.bundle()
     .pipe(source('bundle.js'))
