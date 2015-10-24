@@ -1,31 +1,20 @@
-/* Globals jQuery, Drupal */
+/* global jQuery, Drupal */
 
-// Require libs
+// Import libs
+import Modernizr from './lib/modernizr';
 import utils from './lib/utils';
-import throttle from './lib/throttle';
 
-// Import modernizr
-import 'browsernizr/test/css/transforms';
-import 'browsernizr/test/css/transforms3d';
-import 'browsernizr/test/css/transitions';
-import 'browsernizr/test/svg';
-import 'browsernizr/lib/domPrefixes';
-import 'browsernizr/lib/prefixes';
-import 'browsernizr/lib/html5shiv';
-import 'browsernizr/lib/testAllProps';
-import 'browsernizr/lib/testProp';
-import 'browsernizr/lib/testStyles';
-
-import Modernizr from 'browsernizr';
+// Import throttle lib
+// import throttle from './lib/throttle';
 
 // Require responsive behavior
 // import responsive from './responsive.js';
 
-void function ($) {
+(void function ($) {
   // Run when DOM is ready
   $(document).ready(function () {
     // If SVG is not supported replace it with png version
-    utils.svgToPng()
+    utils.svgToPng();
   });
 
   // Run when DOM is changed
@@ -42,4 +31,4 @@ void function ($) {
 
   // Run on window scroll
   // throttle.add('scroll', myFunction);
-}(jQuery);
+})(jQuery);

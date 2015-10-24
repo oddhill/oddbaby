@@ -1,90 +1,8 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-/**
- * Simple throttle lib, using requestAnimationFrame.
- * Based on examples from MDN:
- * https://developer.mozilla.org/en-US/docs/Web/Events/resize
- */
-
-"use strict";
-
-(function ($) {
-  var ticking = false;
-  var callbacks = {};
-
-  var throttle = function throttle() {
-    return {
-      add: add
-    };
-  };
-
-  // Add a callback to be fired on a certain event.
-  function add(event, callback) {
-    if (!callback || !event) return;
-    if (!callbacks.length) {
-      $(window).on(event, function () {
-        update(event);
-      });
-    }
-    callbacks[event].push(callback);
-  }
-
-  // Runs rAF
-  function update(event) {
-    if (ticking) return;
-    ticking = true;
-
-    if (window.requestAnimationFrame) {
-      window.requestAnimationFrame(function () {
-        run(event);
-      });
-    } else {
-      setTimeout(function () {
-        run(event);
-      }, 66);
-    }
-  }
-
-  // Run our callbacks
-  function run(event) {
-    callbacks[event].forEach(function (cb) {
-      cb();
-    });
-
-    ticking = false;
-  }
-
-  module.exports = throttle;
-})(jQuery);
-
-},{}],2:[function(require,module,exports){
-'use strict';
-
-exports.svgToPng = function () {
-  // If SVG is not supported replace it with png version
-  if (!Modernizr.svg) {
-    $('img[src*="svg"]').attr('src', function () {
-      return $(this).attr('src').replace('.svg', '.png');
-    });
-  }
-};
-
-},{}],3:[function(require,module,exports){
-/* Globals jQuery, Drupal */
-
-// Require libs
+// Import specific modernizr tests and libs
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _libUtils = require('./lib/utils');
-
-var _libUtils2 = _interopRequireDefault(_libUtils);
-
-var _libThrottle = require('./lib/throttle');
-
-var _libThrottle2 = _interopRequireDefault(_libThrottle);
-
-// Import modernizr
 
 require('browsernizr/test/css/transforms');
 
@@ -110,10 +28,43 @@ var _browsernizr = require('browsernizr');
 
 var _browsernizr2 = _interopRequireDefault(_browsernizr);
 
+module.exports = _browsernizr2['default'];
+
+},{"browsernizr":4,"browsernizr/lib/domPrefixes":13,"browsernizr/lib/html5shiv":17,"browsernizr/lib/prefixes":25,"browsernizr/lib/testAllProps":27,"browsernizr/lib/testProp":29,"browsernizr/lib/testStyles":33,"browsernizr/test/css/transforms":35,"browsernizr/test/css/transforms3d":36,"browsernizr/test/css/transitions":37,"browsernizr/test/svg":38}],2:[function(require,module,exports){
+'use strict';
+
+exports.svgToPng = function () {
+  // If SVG is not supported replace it with png version
+  if (!Modernizr.svg) {
+    $('img[src*="svg"]').attr('src', function () {
+      return $(this).attr('src').replace('.svg', '.png');
+    });
+  }
+};
+
+},{}],3:[function(require,module,exports){
+/* global jQuery, Drupal */
+
+// Import libs
+'use strict';
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _libModernizr = require('./lib/modernizr');
+
+var _libModernizr2 = _interopRequireDefault(_libModernizr);
+
+var _libUtils = require('./lib/utils');
+
+var _libUtils2 = _interopRequireDefault(_libUtils);
+
+// Import throttle lib
+// import throttle from './lib/throttle';
+
 // Require responsive behavior
 // import responsive from './responsive.js';
 
-void (function ($) {
+void function ($) {
   // Run when DOM is ready
   $(document).ready(function () {
     // If SVG is not supported replace it with png version
@@ -132,9 +83,9 @@ void (function ($) {
 
   // Run on window scroll
   // throttle.add('scroll', myFunction);
-})(jQuery);
+}(jQuery);
 
-},{"./lib/throttle":1,"./lib/utils":2,"browsernizr":4,"browsernizr/lib/domPrefixes":13,"browsernizr/lib/html5shiv":17,"browsernizr/lib/prefixes":25,"browsernizr/lib/testAllProps":27,"browsernizr/lib/testProp":29,"browsernizr/lib/testStyles":33,"browsernizr/test/css/transforms":35,"browsernizr/test/css/transforms3d":36,"browsernizr/test/css/transitions":37,"browsernizr/test/svg":38}],4:[function(require,module,exports){
+},{"./lib/modernizr":1,"./lib/utils":2}],4:[function(require,module,exports){
 var Modernizr = require('./lib/Modernizr'),
     ModernizrProto = require('./lib/ModernizrProto'),
     classes = require('./lib/classes'),
