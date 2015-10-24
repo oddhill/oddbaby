@@ -33,7 +33,7 @@ module.exports = _browsernizr2['default'];
 },{"browsernizr":4,"browsernizr/lib/domPrefixes":13,"browsernizr/lib/html5shiv":17,"browsernizr/lib/prefixes":25,"browsernizr/lib/testAllProps":27,"browsernizr/lib/testProp":29,"browsernizr/lib/testStyles":33,"browsernizr/test/css/transforms":35,"browsernizr/test/css/transforms3d":36,"browsernizr/test/css/transitions":37,"browsernizr/test/svg":38}],2:[function(require,module,exports){
 'use strict';
 
-exports.svgToPng = function () {
+exports.replaceSVG = function () {
   // If SVG is not supported replace it with png version
   if (!Modernizr.svg) {
     $('img[src*="svg"]').attr('src', function () {
@@ -68,7 +68,7 @@ void function ($) {
   // Run when DOM is ready
   $(document).ready(function () {
     // If SVG is not supported replace it with png version
-    _libUtils2['default'].svgToPng();
+    _libUtils2['default'].replaceSVG();
   });
 
   // Run when DOM is changed

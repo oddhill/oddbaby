@@ -14,7 +14,7 @@ import utils from './lib/utils';
   // Run when DOM is ready
   $(document).ready(function () {
     // If SVG is not supported replace it with png version
-    utils.svgToPng();
+    utils.replaceSVG();
   });
 
   // Run when DOM is changed
