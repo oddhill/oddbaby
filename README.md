@@ -2,20 +2,22 @@
 > A starter theme for Drupal theming.
 
 ## Usage
+Install dependencies
 ```
 npm install
+bower install
 ```
 
 Gulp tasks:
 ```
-// Watch .scss (scss-lint, sass) and .js (jshint)
+// Watch .scss (scss-lint, sass) and .js (jshint, browserify)
 $ gulp watch
 
-// Svg2png
+// Convert svg files to png
 $ gulp svg2png
 ```
 
-## Dependencies
+## Requirements
 * Gulp
 * Sass 3.4
 * Scss lint
@@ -24,7 +26,6 @@ $ gulp svg2png
 * Bourbon
 * Neat
 * Modernizr - Support for csstransform 2D & 3D, svg touch & includes SHIV.
-* Selectivizr
 
 ## License
 MIT © Odd Hill AB
