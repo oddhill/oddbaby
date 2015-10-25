@@ -168,8 +168,6 @@ function replaceSVG() {
   }
 }
 
-;
-
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./../../../bower_components/modernizr/modernizr.custom.js":1}],3:[function(require,module,exports){
 (function (global){
