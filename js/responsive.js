@@ -1,5 +1,5 @@
 import enquire from 'enquire.js';
 
-exports.init = function () {
+export function init () {
   // See http://wicky.nillia.ms/enquire.js/examples/match-unmatch/ for an example
 }

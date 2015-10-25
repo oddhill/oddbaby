@@ -8,4 +8,4 @@ export function replaceSVG () {
       return $(this).attr('src').replace('.svg', '.png');
     });
   }
-};
+}
