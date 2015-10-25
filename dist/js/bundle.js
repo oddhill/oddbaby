@@ -166,7 +166,7 @@ exports.replaceSVG = function () {
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./../../../bower_components/modernizr/modernizr.custom.js":1}],3:[function(require,module,exports){
 (function (global){
-/* global jQuery, Drupal */
+/* global Drupal */
 
 // Import libs
 'use strict';
@@ -177,19 +177,9 @@ var _jquery = (typeof window !== "undefined" ? window['jQuery'] : typeof global 
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _modernizr = require("./../bower_components/modernizr/modernizr.custom.js");
-
-var _modernizr2 = _interopRequireDefault(_modernizr);
-
 var _libUtils = require('lib/utils');
 
 var _libUtils2 = _interopRequireDefault(_libUtils);
-
-// Import throttle lib
-// import throttle from './lib/throttle';
-
-// Require responsive behavior
-// import responsive from './responsive.js';
 
 void function () {
   // Run when DOM is ready
@@ -202,15 +192,7 @@ void function () {
   Drupal.behaviors.ODDBABY = {
     attach: function attach(context, settings) {}
   };
-
-  // Throttle window events
-
-  // Run on window resize
-  // throttle.add('resize', myFunction);
-
-  // Run on window scroll
-  // throttle.add('scroll', myFunction);
 }();
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./../bower_components/modernizr/modernizr.custom.js":1,"lib/utils":2}]},{},[3]);
+},{"lib/utils":2}]},{},[3]);
