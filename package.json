@@ -13,7 +13,6 @@
     "gulp-scss-lint": "^0.3.3",
     "gulp-svg2png": "^0.3.0",
     "jshint-stylish": "^2.0.1",
-    "minimist": "^1.2.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {

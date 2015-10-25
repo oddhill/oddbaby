@@ -9,7 +9,6 @@ var shim = require('browserify-shim')
 var babelify = require('babelify')
 var cssGlobbing = require('gulp-css-globbing')
 var source = require('vinyl-source-stream')
-var argv = require('minimist')(process.argv.slice(2))
 
 // babel
 gulp.task('browserify', function () {
