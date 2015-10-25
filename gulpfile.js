@@ -1,7 +1,6 @@
 var gulp = require('gulp')
 var sass = require('gulp-sass')
-var jshint = require('gulp-jshint')
-var stylish = require('jshint-stylish')
+var eslint = require('gulp-eslint')
 var scsslint = require('gulp-scss-lint')
 var svg2png = require('gulp-svg2png')
 var browserify = require('browserify')
@@ -51,16 +50,16 @@ gulp.task('scss-lint', function () {
 })
 
 // Jshint
-gulp.task('jshint', function () {
+gulp.task('lint', function () {
   return gulp.src('./js/**/*.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter(stylish))
+    .pipe(eslint())
+    .pipe(eslint.format())
 })
 
 // Watch .scss and .js
 gulp.task('watch', function () {
   gulp.watch('./scss/**/*.scss', ['scss-lint', 'sass'])
-  gulp.watch('./js/**/*.js', ['jshint', 'browserify'])
+  gulp.watch('./js/**/*.js', ['lint', 'browserify'])
 })
 
 // Set default task
