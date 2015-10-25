@@ -4,51 +4,51 @@
  * https://developer.mozilla.org/en-US/docs/Web/Events/resize
  */
 
-(function ($) {
-  var ticking = false
-  var callbacks = {}
+import $ from 'jquery';
 
-  var throttle = function () {
-    return {
-      add: add
-    }
+var ticking = false;
+var callbacks = {};
+
+var throttle = function () {
+  return {
+    add: add
+  };
+};
+
+// Add a callback to be fired on a certain event.
+function add (event, callback) {
+  if (!callback || !event) return;
+  if (!callbacks.length) {
+    $(window).on(event, function () {
+      update(event);
+    });
   }
+  callbacks[event].push(callback);
+}
 
-  // Add a callback to be fired on a certain event.
-  function add (event, callback) {
-    if (!callback || !event) return
-    if (!callbacks.length) {
-      $(window).on(event, function () {
-        update(event)
-      })
-    }
-    callbacks[event].push(callback)
+// Runs rAF
+function update (event) {
+  if (ticking) return;
+  ticking = true;
+
+  if (window.requestAnimationFrame) {
+    window.requestAnimationFrame(function () {
+      run(event);
+    });
+  } else {
+    setTimeout(function () {
+      run(event);
+    }, 66);
   }
+}
 
-  // Runs rAF
-  function update (event) {
-    if (ticking) return
-    ticking = true
+// Run our callbacks
+function run (event) {
+  callbacks[event].forEach(function (cb) {
+    cb();
+  });
 
-    if (window.requestAnimationFrame) {
-      window.requestAnimationFrame(function () {
-        run(event)
-      })
-    } else {
-      setTimeout(function () {
-        run(event)
-      }, 66)
-    }
-  }
+  ticking = false;
+}
 
-  // Run our callbacks
-  function run (event) {
-    callbacks[event].forEach(function (cb) {
-      cb()
-    })
-
-    ticking = false
-  }
-
-  export default throttle
-}(jQuery))
+export default throttle;
