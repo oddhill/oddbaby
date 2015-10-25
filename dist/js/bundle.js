@@ -142,6 +142,11 @@
 (function (global){
 'use strict';
 
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+exports.replaceSVG = replaceSVG;
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _jquery = (typeof window !== "undefined" ? window['jQuery'] : typeof global !== "undefined" ? global['jQuery'] : null);
@@ -152,7 +157,7 @@ var _modernizr = require("./../../../bower_components/modernizr/modernizr.custom
 
 var _modernizr2 = _interopRequireDefault(_modernizr);
 
-exports.replaceSVG = function () {
+function replaceSVG() {
   var _this = this;
 
   // If SVG is not supported replace it with png version
@@ -161,7 +166,9 @@ exports.replaceSVG = function () {
       return (0, _jquery2['default'])(_this).attr('src').replace('.svg', '.png');
     });
   }
-};
+}
+
+;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./../../../bower_components/modernizr/modernizr.custom.js":1}],3:[function(require,module,exports){

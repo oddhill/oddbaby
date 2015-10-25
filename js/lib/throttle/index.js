@@ -50,5 +50,5 @@
     ticking = false
   }
 
-  module.exports = throttle
+  export default throttle
 }(jQuery))
