@@ -1,4 +1,4 @@
-/* global jQuery, Drupal */
+/* global Drupal */
 
 // Import libs
 import $ from 'jquery';
@@ -6,7 +6,7 @@ import Modernizr from 'modernizr';
 import utils from 'lib/utils';
 
 // Import throttle lib
-// import throttle from './lib/throttle';
+// import throttle from 'lib/throttle';
 
 // Require responsive behavior
 // import responsive from './responsive.js';
