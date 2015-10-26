@@ -1,8 +1,6 @@
-/* global Drupal */
-
 // Import libs
 import $ from 'jquery';
-import utils from 'lib/utils';
+import * as utils from 'lib/utils';
 
 (void () => {
   // Run when DOM is ready
