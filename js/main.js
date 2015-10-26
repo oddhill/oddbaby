@@ -4,7 +4,7 @@
 import $ from 'jquery';
 import utils from 'lib/utils';
 
-(void function () {
+(void () => {
   // Run when DOM is ready
   $(() => {
     // If SVG is not supported replace it with png version
@@ -13,7 +13,7 @@ import utils from 'lib/utils';
 
   // Run when DOM is changed
   Drupal.behaviors.ODDBABY = {
-    attach: (context, settings) => {
+    attach: () => {
 
     }
   };

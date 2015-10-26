@@ -6,28 +6,20 @@
 
 import $ from 'jquery';
 
-var ticking = false;
-var callbacks = {};
+const callbacks = {};
+let ticking = false;
 
-var throttle = function () {
-  return {
-    add: add
-  };
-};
+// Run our callbacks
+function run(event) {
+  callbacks[event].forEach(function (cb) {
+    cb();
+  });
 
-// Add a callback to be fired on a certain event.
-function add (event, callback) {
-  if (!callback || !event) return;
-  if (!callbacks.length) {
-    $(window).on(event, function () {
-      update(event);
-    });
-  }
-  callbacks[event].push(callback);
+  ticking = false;
 }
 
 // Runs rAF
-function update (event) {
+function update(event) {
   if (ticking) return;
   ticking = true;
 
@@ -42,13 +34,21 @@ function update (event) {
   }
 }
 
-// Run our callbacks
-function run (event) {
-  callbacks[event].forEach(function (cb) {
-    cb();
-  });
-
-  ticking = false;
+// Add a callback to be fired on a certain event.
+function add(event, callback) {
+  if (!callback || !event) return;
+  if (!callbacks.length) {
+    $(window).on(event, function () {
+      update(event);
+    });
+  }
+  callbacks[event].push(callback);
 }
+
+const throttle = function () {
+  return {
+    add: add
+  };
+};
 
 export default throttle;

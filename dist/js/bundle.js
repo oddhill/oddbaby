@@ -195,7 +195,7 @@ void function () {
 
   // Run when DOM is changed
   Drupal.behaviors.ODDBABY = {
-    attach: function attach(context, settings) {}
+    attach: function attach() {}
   };
 }();
 
