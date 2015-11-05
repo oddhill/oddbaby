@@ -35,7 +35,7 @@ gulp.task('svg2png', function () {
 
 // Compile sass
 gulp.task('sass', function () {
-  return gulp.src('./scss/main.scss')
+  return gulp.src(['./scss/main.scss', './scss/print.scss'])
     .pipe(cssGlobbing({
       extensions: ['.scss']
     }))
