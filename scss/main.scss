@@ -1,18 +1,18 @@
 // Import stratagem animation lib
-@import '../bower_components/stratagem/stratagem';
+@import 'stratagem';
 
 // Import Bourbon mixin lib
-@import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
+@import 'bourbon';
 
 // Import our variables, mixins & helpers
 @import 'utils/variables', 'utils/mixins', 'utils/helpers';
 
 // Neat should be imported after variable, reset and mixin declaration.
-@import '../bower_components/neat/app/assets/stylesheets/neat';
+@import 'neat';
 
 // Import neat helpers - this gives us visual grid which can be useful, also
 // gives us media mixin which is useful when making responsive layouts.
-@import '../bower_components/neat/app/assets/stylesheets/neat-helpers';
+@import 'neat-helpers';
 
 // Import base styling
 @import 'base/base', 'base/typography';
@@ -26,4 +26,4 @@
 // Import content
 // @import 'content/**/*';
 
-@import '../bower_components/stratagem-two/stratagem-two';
+@import 'stratagem-two';
