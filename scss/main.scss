@@ -1,3 +1,6 @@
+// Import stratagem animation lib
+@import '../bower_components/stratagem/stratagem';
+
 // Import Bourbon mixin lib
 @import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
 
@@ -22,3 +25,5 @@
 
 // Import content
 // @import 'content/**/*';
+
+@import '../bower_components/stratagem-two/stratagem-two';
