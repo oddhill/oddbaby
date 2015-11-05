@@ -39,7 +39,13 @@ gulp.task('sass', function () {
     .pipe(cssGlobbing({
       extensions: ['.scss']
     }))
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({
+      includePaths: [
+        'bower_components/bourbon/app/assets/stylesheets',
+        'bower_components/neat/app/assets/stylesheets',
+        'bower_components/stratagem'
+      ]
+    }).on('error', sass.logError))
     .pipe(gulp.dest('./dist/css'))
 })
 
