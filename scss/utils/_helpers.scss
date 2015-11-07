@@ -8,10 +8,10 @@
 
 // Font-size with rem + line-height, fallback to px.
 // Line-height is calculated by taking font-size value and multiplying it by $base-line-height
-@mixin font-size($sizeValue: $base-font-size, $lineValue: $base-line-height) {
-  font-size: ($sizeValue * 10) + px;
-  font-size: $sizeValue + rem;
-  line-height: ($sizeValue * 10)*($lineValue) + px;
+@mixin font-size($size-value: $base-font-size, $line-value: $base-line-height) {
+  font-size: ($size-value * 10) + px;
+  font-size: $size-value + rem;
+  line-height: ($size-value * 10)*($line-value) + px;
 }
 
 // Mixin for using SVGs, always fallbacks to a png file with the same name.
