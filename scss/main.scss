@@ -14,6 +14,9 @@
 // gives us media mixin which is useful when making responsive layouts.
 @import 'neat-helpers';
 
+// Import normalize
+@import 'normalize';
+
 // Import base styling
 @import 'base/base', 'base/typography';
 

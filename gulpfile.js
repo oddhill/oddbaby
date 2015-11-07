@@ -43,7 +43,8 @@ gulp.task('sass', function () {
       includePaths: [
         'bower_components/bourbon/app/assets/stylesheets',
         'bower_components/neat/app/assets/stylesheets',
-        'bower_components/stratagem'
+        'bower_components/stratagem',
+        'bower_components/normalize-css/'
       ]
     }).on('error', sass.logError))
     .pipe(gulp.dest('./dist/css'))
