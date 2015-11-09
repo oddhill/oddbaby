@@ -35,11 +35,18 @@ gulp.task('svg2png', function () {
 
 // Compile sass
 gulp.task('sass', function () {
-  return gulp.src('./scss/main.scss')
+  return gulp.src(['./scss/main.scss', './scss/print.scss'])
     .pipe(cssGlobbing({
       extensions: ['.scss']
     }))
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({
+      includePaths: [
+        'bower_components/bourbon/app/assets/stylesheets',
+        'bower_components/neat/app/assets/stylesheets',
+        'bower_components/stratagem',
+        'bower_components/normalize-css/'
+      ]
+    }).on('error', sass.logError))
     .pipe(gulp.dest('./dist/css'))
 })
 
