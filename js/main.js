@@ -1,22 +1,18 @@
-(function($) {
+// Import libs
+import $ from 'jquery';
+import * as utils from 'lib/utils';
 
-// Run whenever the DOM tree is changed, e.g. through AJAX/AHAH
-Drupal.behaviors.ODDBABY = {
-  attach: function (context, settings) {
+(void function () {
+  // Run when DOM is ready
+  $(function () {
+    // If SVG is not supported replace it with png version
+    utils.replaceSVG();
+  });
 
-  }
-};
+  // Run when DOM is changed
+  Drupal.behaviors.ODDBABY = {
+    attach: function () {
 
-// Run once when the DOM is ready (page load)
-$(document).ready(function() {
-
-  // If SVG is not supported replace it with png version
-  if(!Modernizr.svg) { /* Check modernizr for svg support */
-    $('img[src*="svg"]').attr('src', function() {
-        return $(this).attr('src').replace('.svg', '.png'); /* Replace suffixes with .png */
-    });
-  }
-
-});
-
-})(jQuery);
+    }
+  };
+})();
