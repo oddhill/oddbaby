@@ -6,6 +6,7 @@
 
 import $ from 'jquery';
 
+const throttle = {};
 const callbacks = {};
 let ticking = false;
 
@@ -35,20 +36,16 @@ function update(event) {
 }
 
 // Add a callback to be fired on a certain event.
-function add(event, callback) {
+throttle.add = function (event, callback) {
   if (!callback || !event) return;
-  if (!callbacks.length) {
+  if (callbacks[event] === undefined) {
+    callbacks[event] = [];
     $(window).on(event, function () {
       update(event);
     });
   }
+
   callbacks[event].push(callback);
 }
-
-const throttle = function () {
-  return {
-    add
-  };
-};
 
 export default throttle;
