@@ -145,7 +145,6 @@
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-exports.replaceSVG = replaceSVG;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -157,7 +156,9 @@ var _modernizr = require("./../../../bower_components/modernizr/modernizr.custom
 
 var _modernizr2 = _interopRequireDefault(_modernizr);
 
-function replaceSVG() {
+var utils = {};
+
+utils.replaceSVG = function () {
   var _this = this;
 
   // If SVG is not supported replace it with png version
@@ -166,15 +167,16 @@ function replaceSVG() {
       return (0, _jquery2['default'])(_this).attr('src').replace('.svg', '.png');
     });
   }
-}
+};
+
+exports['default'] = utils;
+module.exports = exports['default'];
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./../../../bower_components/modernizr/modernizr.custom.js":1}],3:[function(require,module,exports){
 (function (global){
 // Import libs
 'use strict';
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -184,13 +186,13 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 var _libUtils = require('lib/utils');
 
-var utils = _interopRequireWildcard(_libUtils);
+var _libUtils2 = _interopRequireDefault(_libUtils);
 
 void function () {
   // Run when DOM is ready
   (0, _jquery2['default'])(function () {
     // If SVG is not supported replace it with png version
-    utils.replaceSVG();
+    _libUtils2['default'].replaceSVG();
   });
 
   // Run when DOM is changed

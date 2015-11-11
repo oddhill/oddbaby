@@ -1,6 +1,6 @@
 // Import libs
 import $ from 'jquery';
-import * as utils from 'lib/utils';
+import utils from 'lib/utils';
 
 (void function () {
   // Run when DOM is ready
