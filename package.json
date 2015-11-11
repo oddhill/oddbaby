@@ -1,6 +1,6 @@
 {
   "name": "oddbaby",
-  "version": "3.1.3",
+  "version": "4.0.0",
   "description": "A starter theme for Drupal theming.",
   "devDependencies": {
     "babel-eslint": "^4.1.3",
