@@ -47,7 +47,7 @@ function add(event, callback) {
 
 const throttle = function () {
   return {
-    add: add
+    add
   };
 };
 

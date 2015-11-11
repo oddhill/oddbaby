@@ -11,7 +11,7 @@ import utils from 'lib/utils';
 
   // Run when DOM is changed
   Drupal.behaviors.ODDBABY = {
-    attach: function () {
+    attach() {
 
     }
   };
