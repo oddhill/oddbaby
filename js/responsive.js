@@ -8,6 +8,6 @@ responsive.init = function () {
     match() {},
     unmatch() {}
   });
-}
+};
 
 export default responsive;

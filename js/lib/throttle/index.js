@@ -46,6 +46,6 @@ throttle.add = function (event, callback) {
   }
 
   callbacks[event].push(callback);
-}
+};
 
 export default throttle;
