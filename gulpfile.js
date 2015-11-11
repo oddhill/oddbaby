@@ -22,7 +22,10 @@ gulp.task('browserify', function () {
   b.transform(shim, {global: true})
 
   return b.bundle()
-    .on('error', function () {})
+    .on('error', function (err) {
+      console.log(err.message)
+      this.emit('end')
+    })
     .pipe(source('bundle.js'))
     .pipe(gulp.dest('./dist/js'))
 })
