@@ -174,7 +174,7 @@ var _jquery = (typeof window !== "undefined" ? window['jQuery'] : typeof global 
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _modernizr = require("./../../../bower_components/modernizr/modernizr.custom.js");
+var _modernizr = require("./../../bower_components/modernizr/modernizr.custom.js");
 
 var _modernizr2 = _interopRequireDefault(_modernizr);
 
@@ -196,7 +196,7 @@ utils.replaceSVG = function () {
 exports.default = utils;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./../../../bower_components/modernizr/modernizr.custom.js":1}],3:[function(require,module,exports){
+},{"./../../bower_components/modernizr/modernizr.custom.js":1}],3:[function(require,module,exports){
 (function (global){
 'use strict';
 
