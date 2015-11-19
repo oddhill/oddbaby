@@ -17,7 +17,7 @@ gulp.task('browserify', function () {
     entries: './main.js'
   })
 
-  b.transform(babelify)
+  b.transform(babelify, {presets: ['es2015']})
   b.transform(debowerify)
   b.transform(shim, {global: true})
 
