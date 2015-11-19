@@ -1,51 +1,25 @@
 /**
- * Simple throttle lib, using requestAnimationFrame.
- * Based on examples from MDN:
- * https://developer.mozilla.org/en-US/docs/Web/Events/resize
+ * Simple throttle function, using requestAnimationFrame.
  */
 
-import $ from 'jquery';
+const wait = (function () {
+  if (window.requestAnimationFrame) return window.requestAnimationFrame;
 
-const throttle = {};
-const callbacks = {};
-let ticking = false;
+  return function (cb) {
+    window.setTimeout(cb, 100);
+  };
+})();
 
-// Run our callbacks
-function run(event) {
-  callbacks[event].forEach(function (cb) {
-    cb();
-  });
+let running = false;
 
-  ticking = false;
-}
+export default function throttle(cb) {
+  return () => {
+    if (running) return;
+    running = true;
 
-// Runs rAF
-function update(event) {
-  if (ticking) return;
-  ticking = true;
-
-  if (window.requestAnimationFrame) {
-    window.requestAnimationFrame(function () {
-      run(event);
+    wait(() => {
+      cb.apply();
+      running = false;
     });
-  } else {
-    setTimeout(function () {
-      run(event);
-    }, 66);
-  }
+  };
 }
-
-// Add a callback to be fired on a certain event.
-throttle.add = function (event, callback) {
-  if (!callback || !event) return;
-  if (callbacks[event] === undefined) {
-    callbacks[event] = [];
-    $(window).on(event, function () {
-      update(event);
-    });
-  }
-
-  callbacks[event].push(callback);
-};
-
-export default throttle;
