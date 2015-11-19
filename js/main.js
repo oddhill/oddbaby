@@ -2,7 +2,7 @@
 import $ from 'jquery';
 import utils from 'lib/utils';
 
-(void function () {
+(function () {
   // Run when DOM is ready
   $(function () {
     // If SVG is not supported replace it with png version

@@ -212,7 +212,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Import libs
 
-(void function () {
+(function () {
   // Run when DOM is ready
   (0, _jquery2.default)(function () {
     // If SVG is not supported replace it with png version
