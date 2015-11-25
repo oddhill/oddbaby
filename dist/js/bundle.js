@@ -182,6 +182,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var utils = {};
 
+var running = false;
+
+(function wait() {
+  if (window.requestAnimationFrame) return window.requestAnimationFrame;
+
+  return function (cb) {
+    window.setTimeout(cb, 100);
+  };
+})();
+
 utils.replaceSVG = function () {
   var _this = this;
 
@@ -191,6 +201,18 @@ utils.replaceSVG = function () {
       return (0, _jquery2.default)(_this).attr('src').replace('.svg', '.png');
     });
   }
+};
+
+utils.throttle = function (cb) {
+  return function () {
+    if (running) return;
+    running = true;
+
+    wait(function () {
+      cb.apply();
+      running = false;
+    });
+  };
 };
 
 exports.default = utils;
