@@ -184,7 +184,7 @@ var utils = {};
 
 var running = false;
 
-(function wait() {
+window.raf = (function () {
   if (window.requestAnimationFrame) return window.requestAnimationFrame;
 
   return function (cb) {
@@ -208,7 +208,7 @@ utils.throttle = function (cb) {
     if (running) return;
     running = true;
 
-    wait(function () {
+    window.raf(function () {
       cb.apply();
       running = false;
     });
