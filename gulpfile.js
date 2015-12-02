@@ -6,7 +6,6 @@ var svg2png = require('gulp-svg2png')
 var browserify = require('browserify')
 var shim = require('browserify-shim')
 var babelify = require('babelify')
-var debowerify = require('debowerify')
 var cssGlobbing = require('gulp-css-globbing')
 var source = require('vinyl-source-stream')
 
@@ -18,7 +17,6 @@ gulp.task('browserify', function () {
   })
 
   b.transform(babelify, {presets: ['es2015']})
-  b.transform(debowerify)
   b.transform(shim, {global: true})
 
   return b.bundle()
