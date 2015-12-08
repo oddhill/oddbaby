@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import Modernizr from 'modernizr';
+import Modernizr from 'Modernizr';
 
 const utils = {};
 

@@ -5,7 +5,6 @@
 Install dependencies
 ```
 npm install
-bower install
 ```
 
 Gulp tasks:
