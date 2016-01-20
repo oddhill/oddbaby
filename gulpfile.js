@@ -1,39 +1,39 @@
-var gulp = require('gulp')
-var sass = require('gulp-sass')
-var eslint = require('gulp-eslint')
-var scsslint = require('gulp-scss-lint')
-var svg2png = require('gulp-svg2png')
-var browserify = require('browserify')
-var shim = require('browserify-shim')
-var babelify = require('babelify')
-var cssGlobbing = require('gulp-css-globbing')
-var source = require('vinyl-source-stream')
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const eslint = require('gulp-eslint');
+const scsslint = require('gulp-scss-lint');
+const svg2png = require('gulp-svg2png');
+const browserify = require('browserify');
+const shim = require('browserify-shim');
+const babelify = require('babelify');
+const cssGlobbing = require('gulp-css-globbing');
+const source = require('vinyl-source-stream');
+const gutil = require('gulp-util');
 
 // babel
 gulp.task('browserify', function () {
-  var b = browserify({
+  const b = browserify({
     basedir: './js',
     entries: './main.js'
-  })
+  });
 
-  b.transform(babelify, {presets: ['es2015']})
-  b.transform(shim, {global: true})
+  b.transform(babelify, {presets: ['es2015']});
+  b.transform(shim, {global: true});
 
   return b.bundle()
     .on('error', function (err) {
-      console.log(err.message)
-      this.emit('end')
+      gutil.log(gutil.colors.red('Browserify build error:\n') + err.message);
     })
     .pipe(source('bundle.js'))
-    .pipe(gulp.dest('./dist/js'))
-})
+    .pipe(gulp.dest('./dist/js'));
+});
 
 // svg2png
 gulp.task('svg2png', function () {
   gulp.src('./graphics/**/*.svg')
     .pipe(svg2png())
-    .pipe(gulp.dest('./graphics'))
-})
+    .pipe(gulp.dest('./graphics'));
+});
 
 // Compile sass
 gulp.task('sass', function () {
@@ -49,27 +49,27 @@ gulp.task('sass', function () {
         'node_modules/Stratagem/'
       ]
     }).on('error', sass.logError))
-    .pipe(gulp.dest('./dist/css'))
-})
+    .pipe(gulp.dest('./dist/css'));
+});
 
 // Lint sass
 gulp.task('scss-lint', function () {
   return gulp.src(['./scss/**/*.scss', '!./scss/print.scss', '!scss/normalize.scss', '!scss/vendor/**/*'])
-    .pipe(scsslint())
-})
+    .pipe(scsslint());
+});
 
 // Jshint
 gulp.task('lint', function () {
   return gulp.src('./js/**/*.js')
     .pipe(eslint())
-    .pipe(eslint.format())
-})
+    .pipe(eslint.format());
+});
 
 // Watch .scss and .js
 gulp.task('watch', function () {
-  gulp.watch('./scss/**/*.scss', ['scss-lint', 'sass'])
-  gulp.watch('./js/**/*.js', ['lint', 'browserify'])
-})
+  gulp.watch('./scss/**/*.scss', ['scss-lint', 'sass']);
+  gulp.watch('./js/**/*.js', ['lint', 'browserify']);
+});
 
 // Set default task
-gulp.task('default', ['watch'])
+gulp.task('default', ['watch']);
