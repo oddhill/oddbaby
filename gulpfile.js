@@ -9,23 +9,32 @@ const babelify = require('babelify');
 const cssGlobbing = require('gulp-css-globbing');
 const source = require('vinyl-source-stream');
 const gutil = require('gulp-util');
+const watchify = require('watchify');
 
-// babel
-gulp.task('browserify', function () {
-  const b = browserify({
-    basedir: './js',
-    entries: './main.js'
-  });
+// Browserify
+const b = browserify({
+  basedir: './js',
+  entries: './main.js',
+  cache: {},
+  packageCache: {}
+});
 
-  b.transform(babelify, {presets: ['es2015']});
-  b.transform(shim, {global: true});
+b.transform(babelify, { presets: ['es2015'] });
+b.transform(shim, { global: true });
 
+// Bundle Browserify
+function bundle() {
   return b.bundle()
     .on('error', function (err) {
       gutil.log(gutil.colors.red('Browserify build error:\n') + err.message);
     })
     .pipe(source('bundle.js'))
     .pipe(gulp.dest('./dist/js'));
+}
+
+// Browserify gulp task
+gulp.task('browserify', function () {
+  return bundle();
 });
 
 // svg2png
@@ -58,8 +67,8 @@ gulp.task('scss-lint', function () {
     .pipe(scsslint());
 });
 
-// Jshint
-gulp.task('lint', function () {
+// Eslint
+gulp.task('eslint', function () {
   return gulp.src('./js/**/*.js')
     .pipe(eslint())
     .pipe(eslint.format());
@@ -68,7 +77,14 @@ gulp.task('lint', function () {
 // Watch .scss and .js
 gulp.task('watch', function () {
   gulp.watch('./scss/**/*.scss', ['scss-lint', 'sass']);
-  gulp.watch('./js/**/*.js', ['lint', 'browserify']);
+  gulp.watch('./js/**/*.js', ['eslint']);
+
+  b.plugin(watchify);
+  b.on('update', bundle);
+  b.on('log', function (msg) {
+    gutil.log('Browserify build - ' + msg);
+  });
+  bundle();
 });
 
 // Set default task
