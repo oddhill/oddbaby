@@ -76,8 +76,8 @@ gulp.task('eslint', function () {
 
 // Watch .scss and .js
 gulp.task('watch', function () {
-  gulp.watch('./scss/**/*.scss', ['scss-lint', 'sass']);
-  gulp.watch('./js/**/*.js', ['eslint']);
+  gulp.watch('scss/**/*.scss', ['scss-lint', 'sass']);
+  gulp.watch('js/**/*.js', ['eslint']);
 
   b.plugin(watchify);
   b.on('update', bundle);
